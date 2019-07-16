@@ -21,7 +21,7 @@ export default function BlogPost(props) {
           href={`${siteMetadata.siteUrl}${frontmatter.path}`}
         />
       </Helmet>
-      <Article itemScope={true} itemType="//schema.org/BlogPost">
+      <Article itemScope={true} itemType="//schema.org/BlogPosting">
         <h1>{frontmatter.title}</h1>
         <p>
           <span itemProp="//schema.org/author">{siteMetadata.author}</span>,{" "}
