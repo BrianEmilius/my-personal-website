@@ -21,10 +21,10 @@ export default function BlogPost(props) {
           href={`${siteMetadata.siteUrl}${frontmatter.path}`}
         />
       </Helmet>
-      <Article>
+      <Article itemScope={true} itemType="//schema.org/BlogPost">
         <h1>{frontmatter.title}</h1>
         <p>
-          {siteMetadata.author},{" "}
+          <span itemProp="//schema.org/author">{siteMetadata.author}</span>,{" "}
           <time dateTime={frontmatter.date}>{frontmatter.date}</time>
         </p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
