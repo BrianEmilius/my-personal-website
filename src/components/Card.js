@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "gatsby";
+import Styled from "styled-components";
 
-export default function Card({ frontmatter }) {
+const Article = Styled.article`
+
+`;
+
+export default function Card({ excerpt, frontmatter }) {
   return (
-    <article>
+    <Article>
       <h1>
         <Link to={frontmatter.path}>{frontmatter.title}</Link>
       </h1>
-    </article>
+      <div>{excerpt}</div>
+    </Article>
   );
 }

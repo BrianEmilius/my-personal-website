@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
+
+import SiteHeader from "./SiteHeader";
 
 export default function Layout({ children }) {
   return (
-    <>
-      <Link to="/">Home</Link>
-      <Link to="/blog">Blog</Link>
+    <div itemScope={true} itemType="WebPage">
+      <SiteHeader />
       {children}
-    </>
+    </div>
   );
 }

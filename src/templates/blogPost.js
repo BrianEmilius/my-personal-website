@@ -1,7 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Styled from "styled-components";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
+
+const Article = Styled.article`
+  padding: 0 var(--pageMargin);
+`;
 
 export default function BlogPost(props) {
   const { markdownRemark } = props.data;
@@ -16,14 +21,14 @@ export default function BlogPost(props) {
           href={`${siteMetadata.siteUrl}${frontmatter.path}`}
         />
       </Helmet>
-      <article>
+      <Article>
         <h1>{frontmatter.title}</h1>
         <p>
           {siteMetadata.author},{" "}
           <time dateTime={frontmatter.date}>{frontmatter.date}</time>
         </p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-      </article>
+      </Article>
     </Layout>
   );
 }
