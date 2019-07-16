@@ -36,8 +36,8 @@ const Component = function({ file }) {
     <Hero>
       <Paragraph>
         Hello, World! My name is{" "}
-        <strong itemType="Author">Brian Emilius</strong>.<br />I teach web
-        development.
+        <strong itemType="//schema.org/Author">Brian Emilius</strong>.<br />I
+        teach web development.
       </Paragraph>
     </Hero>
   );
