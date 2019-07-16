@@ -22,10 +22,15 @@ export default function BlogPost(props) {
         />
       </Helmet>
       <Article itemScope={true} itemType="//schema.org/BlogPosting">
-        <h1>{frontmatter.title}</h1>
+        <h1 itemProp="//schema.org/headline">{frontmatter.title}</h1>
         <p>
           <span itemProp="//schema.org/author">{siteMetadata.author}</span>,{" "}
-          <time dateTime={frontmatter.date}>{frontmatter.date}</time>
+          <time
+            dateTime={frontmatter.date}
+            itemProp="//schema.org/datePublished"
+          >
+            {frontmatter.date}
+          </time>
         </p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Article>
