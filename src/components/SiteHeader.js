@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "styled-components";
-import { Link } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 
 import PrimaryNavigation from "./PrimaryNavigation";
 
@@ -13,13 +13,32 @@ const Header = Styled.header`
   padding: 0 var(--pageMargin);
 `;
 
-export default function SiteHeader() {
+const Image = Styled.img`
+  height: 100%;
+  width: auto;
+`;
+
+function Component({ data }) {
   return (
     <Header>
       <Link to="/">
-        <img src="" alt="icon in the shape of a house" />
+        <Image src={data.file.publicURL} alt="icon in the shape of a house" />
       </Link>
       <PrimaryNavigation />
     </Header>
+  );
+}
+
+const query = graphql`
+  query {
+    file(base: { eq: "home.svg" }) {
+      publicURL
+    }
+  }
+`;
+
+export default function SiteHeader() {
+  return (
+    <StaticQuery query={query} render={data => <Component data={data} />} />
   );
 }
