@@ -23,6 +23,9 @@ export default function BlogList() {
                   title
                   path
                   date(formatString: "YYYY MMMM DD")
+                  featured_image {
+                    publicURL
+                  }
                 }
                 excerpt(pruneLength: 150)
               }
