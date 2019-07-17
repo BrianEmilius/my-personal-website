@@ -5,7 +5,10 @@ import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 
 const Article = Styled.article`
-  padding: 0 var(--pageMargin);
+  margin: 0 var(--pageMargin);
+  border: 1px solid grey;
+  background-color: hsl(0, 0%, 97%);
+  padding: 1em;
 `;
 
 export default function BlogPost(props) {
@@ -52,6 +55,9 @@ export const logQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         path
         title
+        featured_image {
+          publicURL
+        }
       }
     }
     site {
