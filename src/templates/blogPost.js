@@ -6,7 +6,8 @@ import Layout from "../components/Layout";
 
 const Article = Styled.article`
   margin: 0 var(--pageMargin);
-  border: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
   background-color: hsl(0, 0%, 97%);
   padding: 1em;
 `;
