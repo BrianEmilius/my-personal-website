@@ -62,7 +62,7 @@ export default function Credits() {
           </a>
         </p>
         <p>
-          Icons made by{" "}
+          RSS icon made by{" "}
           <a href="https://www.freepik.com/" title="Freepik">
             Freepik
           </a>{" "}
