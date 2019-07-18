@@ -22,7 +22,7 @@ function Component({ data }) {
   return (
     <Header>
       <Link to="/">
-        <Image src={data.file.publicURL} alt="icon in the shape of a house" />
+        <Image src={data.home.publicURL} alt="icon in the shape of a house" />
       </Link>
       <PrimaryNavigation />
     </Header>
@@ -31,7 +31,7 @@ function Component({ data }) {
 
 const query = graphql`
   query {
-    file(base: { eq: "home.svg" }) {
+    home: file(base: { eq: "home.svg" }) {
       publicURL
     }
   }
