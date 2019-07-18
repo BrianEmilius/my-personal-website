@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import Styled from "styled-components";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
@@ -31,12 +31,25 @@ export default function BlogList() {
               }
             }
           }
+          rss: file(base: { eq: "subscribe-rss-button.svg" }) {
+            publicURL
+          }
         }
       `}
       render={data => (
         <Layout>
           <Section>
             <h1>Blog</h1>
+            <p>
+              <Link to="/rss.xml">
+                <img
+                  src={data.rss.publicURL}
+                  alt="RSS feed icon"
+                  style={{ height: "1em", width: "auto" }}
+                />{" "}
+                Subscribe to this blog
+              </Link>
+            </p>
             {data.allMarkdownRemark.edges.map(({ node }, index) => (
               <Card key={index} {...node} />
             ))}
