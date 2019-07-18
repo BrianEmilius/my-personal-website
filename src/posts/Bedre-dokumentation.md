@@ -1,6 +1,6 @@
 ---
 title: Bedre dokumentation
-path: /bog/bedre-dokumentation
+path: /blog/bedre-dokumentation
 author: Brian Emilius
 twitter: brianemilius
 featured_image:
