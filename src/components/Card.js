@@ -6,6 +6,9 @@ const Article = Styled.article`
   border: 1px solid grey;
   background-color: hsl(0, 0%, 97%);
   padding: 1em;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
   &:not(last-of-type) {
     margin-bottom: 2em;
   }
