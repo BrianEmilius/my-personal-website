@@ -14,8 +14,19 @@ exports.onCreateNode = function({ node, actions, getNode }) {
 };
 
 exports.createPages = function({ actions, graphql }) {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const template = path.resolve("src/templates/blogPost.js");
+
+  createRedirect({
+    fromPath: "https://brianemilius.netlify.com/*",
+    toPath: "https://www.brianemilius.com/:splat",
+    isPermanent: true
+  });
+  createRedirect({
+    fromPath: "https://brianemilius.com/*",
+    toPath: "https://www.brianemilius.com/:splat",
+    isPermanent: true
+  });
 
   return graphql(`
     query {
