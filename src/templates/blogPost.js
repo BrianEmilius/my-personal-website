@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Styled from "styled-components";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
+import Gitment from "gitment";
 
 const Article = Styled.article`
   border-left: 1px solid grey;
@@ -18,6 +19,20 @@ export default function BlogPost(props) {
   const { markdownRemark } = props.data;
   const { frontmatter, html } = markdownRemark;
   const { siteMetadata } = props.data.site;
+
+  const comments = React.createRef();
+
+  const gitment = new Gitment({
+    id: frontmatter.title,
+    owner: "brianemilius",
+    repo: "www.brianemilius.com",
+    oauth: {
+      client_id: "78d9230d901226dec1af",
+      client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
+    }
+  });
+
+  gitment.render(comments);
 
   return (
     <Layout>
@@ -43,6 +58,9 @@ export default function BlogPost(props) {
           </time>
         </p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        <section ref={comments}>
+          <h1>Comments</h1>
+        </section>
       </Article>
     </Layout>
   );
