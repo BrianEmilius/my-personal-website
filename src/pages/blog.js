@@ -52,7 +52,7 @@ export default function BlogList() {
           <Section>
             <h1>Blog</h1>
             <p>
-              <Subscribe href="/rss.xml">
+              <Subscribe href="/feed.rss">
                 <img
                   src={data.rss.publicURL}
                   alt="RSS feed icon"

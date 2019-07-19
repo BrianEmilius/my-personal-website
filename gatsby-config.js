@@ -83,8 +83,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Your Site's RSS Feed"
+            output: "/feed.rss",
+            title: "Brian Emilius' RSS Feed"
           }
         ]
       }
