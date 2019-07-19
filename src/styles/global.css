@@ -39,4 +39,5 @@ a[target="_blank"]::after {
 	height: 1rem;
 	width: 1rem;
 	content: "";
+	margin-left: .25em;
 }
