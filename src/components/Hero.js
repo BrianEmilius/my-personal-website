@@ -11,7 +11,7 @@ const imageQuery = graphql`
 `;
 
 const Component = function({ file }) {
-  const Hero = Styled.header`
+  const Hero = Styled.section`
 		height: 95vh;
 		background-image: url(${file.publicURL});
 		background-size: cover;
