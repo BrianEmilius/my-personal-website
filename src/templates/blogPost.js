@@ -21,17 +21,21 @@ export default function BlogPost(props) {
   const { siteMetadata } = props.data.site;
 
   function getComments() {
-    const gitment = new Gitment({
-      id: frontmatter.title,
-      owner: "brianemilius",
-      repo: "www.brianemilius.com",
-      oauth: {
-        client_id: "78d9230d901226dec1af",
-        client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
-      }
-    });
+    try {
+      const gitment = new Gitment({
+        id: frontmatter.title,
+        owner: "brianemilius",
+        repo: "www.brianemilius.com",
+        oauth: {
+          client_id: "78d9230d901226dec1af",
+          client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
+        }
+      });
 
-    return gitment.render().innerHTML;
+      return gitment.render().innerHTML;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   getComments();
