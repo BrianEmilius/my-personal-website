@@ -27,7 +27,11 @@ export default function BlogPost(props) {
           href={`${siteMetadata.siteUrl}${frontmatter.path}`}
         />
       </Helmet>
-      <Article itemScope={true} itemType="//schema.org/BlogPosting">
+      <Article
+        itemProp="//schema.org/mainEntityOfPage"
+        itemScope={true}
+        itemType="//schema.org/BlogPosting"
+      >
         <h1 itemProp="//schema.org/headline">{frontmatter.title}</h1>
         <p>
           <span itemProp="//schema.org/author">{siteMetadata.author}</span>,{" "}
@@ -41,10 +45,7 @@ export default function BlogPost(props) {
         <span itemProp="//schema.org/dateModified" />
         <span itemProp="//schema.org/image" />
         <span itemProp="//schema.org/publisher" />
-        <div
-          dangerouslySetInnerHTML={{ __html: html }}
-          itemProp="//schema.org/mainEntityOfPage"
-        />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </Article>
     </Layout>
   );
