@@ -20,19 +20,21 @@ export default function BlogPost(props) {
   const { frontmatter, html } = markdownRemark;
   const { siteMetadata } = props.data.site;
 
-  const comments = React.createRef();
+  function getComments() {
+    const gitment = new Gitment({
+      id: frontmatter.title,
+      owner: "brianemilius",
+      repo: "www.brianemilius.com",
+      oauth: {
+        client_id: "78d9230d901226dec1af",
+        client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
+      }
+    });
 
-  const gitment = new Gitment({
-    id: frontmatter.title,
-    owner: "brianemilius",
-    repo: "www.brianemilius.com",
-    oauth: {
-      client_id: "78d9230d901226dec1af",
-      client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
-    }
-  });
+    return gitment.render().innerHTML;
+  }
 
-  gitment.render(comments);
+  getComments();
 
   return (
     <Layout>
@@ -58,8 +60,9 @@ export default function BlogPost(props) {
           </time>
         </p>
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        <section ref={comments}>
+        <section>
           <h1>Comments</h1>
+          <div dangerouslySetInnerHTML={{ __html: getComments() }} />
         </section>
       </Article>
     </Layout>
