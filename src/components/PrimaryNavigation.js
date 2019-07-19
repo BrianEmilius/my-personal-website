@@ -13,9 +13,7 @@ const Ul = Styled.ul`
 const Anchor = Styled(Link)`
   color: hsl(0, 0%, 96%);
   text-decoration: none;
-  &:not(last-of-type) {
-    padding: 0 1em;
-  }
+  margin-left: 1em;
 `;
 
 export default function PrimaryNavigation() {

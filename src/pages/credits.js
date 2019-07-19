@@ -3,13 +3,15 @@ import Styled from "styled-components";
 
 import Layout from "../components/Layout";
 
-const Section = Styled.article`
-	margin: 0 var(--pageMargin);
-	background-color: hsl(0, 0%, 97%);
-	padding: 1em;
-	border-left: 1px solid grey;
-	border-right: 1px solid grey;
-	min-height: 95vh;
+const Section = Styled.section`
+  background-color: hsl(0, 0%, 97%);
+  padding: 1em;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  min-height: 95vh;
+  @media screen and (min-width: 30em) {
+    margin: 0 var(--pageMargin);
+  }
 `;
 
 export default function Credits() {

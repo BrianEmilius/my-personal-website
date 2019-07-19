@@ -5,11 +5,13 @@ import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 
 const Article = Styled.article`
-  margin: 0 var(--pageMargin);
   border-left: 1px solid grey;
   border-right: 1px solid grey;
   background-color: hsl(0, 0%, 97%);
   padding: 1em;
+  @media screen and (min-width: 30em) {
+    margin: 0 var(--pageMargin);
+  }
 `;
 
 export default function BlogPost(props) {

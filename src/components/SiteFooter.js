@@ -6,8 +6,12 @@ const Footer = Styled.footer`
 	background-color: hsl(0, 0%, 4%);
 	color: hsl(0, 0%, 97%);
 	padding: 1em;
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (min-width: 64em) {
+    flex-direction: row;
+  }
 `;
 
 export default function SiteFooter() {

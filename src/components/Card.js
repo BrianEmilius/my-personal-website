@@ -9,14 +9,16 @@ const Article = Styled.article`
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  &:not(last-of-type) {
-    margin-bottom: 2em;
-  }
+  margin-bottom: 2em;
+`;
+
+const Image = Styled.img`
+  max-width: 100%;
 `;
 
 function featuredImage(frontmatter) {
   if (frontmatter.featured_image && frontmatter.featured_image.publicURL) {
-    return <img src={frontmatter.featured_image.publicURL} alt="" />;
+    return <Image src={frontmatter.featured_image.publicURL} alt="" />;
   } else {
     return;
   }

@@ -14,15 +14,17 @@ const Header = Styled.header`
 `;
 
 const Image = Styled.img`
-  height: 100%;
-  width: auto;
+  height: 1em;
+  width: 1em;
+  line-height: 5vh;
+  display: inline-block;
 `;
 
 function Component({ data }) {
   return (
     <Header>
       <Link to="/">
-        <Image src={data.home.publicURL} alt="icon in the shape of a house" />
+        <Image src={data.home.publicURL} alt="" />
       </Link>
       <PrimaryNavigation />
     </Header>

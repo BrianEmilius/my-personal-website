@@ -30,7 +30,10 @@ const Component = function({ file }) {
     padding: 2em;
     margin: 0;
     width: 100%;
-    font-size: 180%;
+    font-size: 120%;
+    @media screen and (min-width: 30em) {
+      font-size: 180%;
+    }
   `;
   return (
     <Hero>
