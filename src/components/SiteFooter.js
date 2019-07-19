@@ -26,7 +26,7 @@ export default function SiteFooter() {
         <p>Hosted by Netlify</p>
       </section>
       <section>
-        <p>Copyright &copy; 2019</p>
+        <p>Copyright &copy; 2015-{new Date().getFullYear()}</p>
       </section>
       <section>
         <h1>Reach out!</h1>
