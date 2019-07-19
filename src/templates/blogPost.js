@@ -42,9 +42,6 @@ export default function BlogPost(props) {
             {frontmatter.date}
           </time>
         </p>
-        <span itemProp="//schema.org/dateModified" />
-        <span itemProp="//schema.org/image" />
-        <span itemProp="//schema.org/publisher" />
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Article>
     </Layout>
