@@ -32,7 +32,7 @@ export default class BlogPost extends Component {
     const gitment = new Gitment({
       title,
       owner: "BrianEmilius",
-      repo: "www.brianemilius.com",
+      repo: "https://github.com/BrianEmilius/www.brianemilius.com",
       oauth: {
         client_id: "78d9230d901226dec1af",
         client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
