@@ -48,7 +48,7 @@ export default function BlogList() {
         }
       `}
       render={data => (
-        <Layout>
+        <Layout title="Blog">
           <Section>
             <h1>Blog</h1>
             <p>

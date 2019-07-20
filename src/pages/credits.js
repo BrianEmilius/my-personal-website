@@ -16,7 +16,7 @@ const Section = Styled.section`
 
 export default function Credits() {
   return (
-    <Layout>
+    <Layout title="Credits">
       <Section>
         <h1>Credits</h1>
         <p>

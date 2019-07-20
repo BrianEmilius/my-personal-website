@@ -20,10 +20,11 @@ export default class BlogPost extends Component {
     super(props);
     this.state = {};
     const { markdownRemark } = props.data;
-    const { frontmatter, html } = markdownRemark;
+    const { frontmatter, html, excerpt } = markdownRemark;
     const { siteMetadata } = props.data.site;
     this.frontmatter = frontmatter;
     this.html = html;
+    this.excerpt = excerpt;
     this.siteMetadata = siteMetadata;
   }
 
@@ -47,12 +48,19 @@ export default class BlogPost extends Component {
 
   render() {
     return (
-      <Layout>
+      <Layout title={this.frontmatter.title}>
         <Helmet>
           <link
             rel="cannonical"
             href={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
           />
+          <meta property="og:title" content={this.frontmatter.title} />
+          <meta property="og:description" content={this.excerpt} />
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:creator" content={this.siteMetadata.author} />
+          <meta name="twitter:title" content={this.frontmatter.title} />
+          <meta name="twitter:description" content={this.excerpt} />
         </Helmet>
         <Article
           itemProp="//schema.org/mainEntityOfPage"
@@ -87,6 +95,7 @@ export const logQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      excerpt
       frontmatter {
         date(formatString: "YYYY-MM-DD")
         path
