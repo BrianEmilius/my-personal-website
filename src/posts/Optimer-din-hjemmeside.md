@@ -4,7 +4,6 @@ path: /blog/optimer-din-hjemmeside
 author: Brian Emilius
 twitter: brianemilius
 featured_image: ../images/optimer-din-hjemmeside.png
-description: Hvis du nogensinde har brugt Google Chromes Audit værktøj, har du sikkert bemærket at nærmest uanset hvad du gør, så vil Audit fortælle dig at din CSS blokerer indlæsningen af din side (render-blocking).
 date: 2018-04-17 10:26:57
 tags: ["CSS","JavaScript","optimering","best-practice"]
 categories: ["Guides"]

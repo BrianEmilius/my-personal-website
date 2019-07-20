@@ -4,7 +4,6 @@ path: /blog/bedre-dokumentation
 author: Brian Emilius
 twitter: brianemilius
 featured_image: ../images/bedre-dokumentation.png
-description:
 tags: ["JavaScript","dokumentation"]
 categories: ["Renere kode"]
 date: 2017-12-27 11:32:06

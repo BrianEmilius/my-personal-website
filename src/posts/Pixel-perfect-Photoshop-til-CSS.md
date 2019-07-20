@@ -4,7 +4,6 @@ path: /blog/pixel-perfect-photoshop-til-css
 author: Brian Emilius
 twitter: brianemilius
 featured_image: ../images/pixel-perfect-photoshop-top-css.png
-description:
 date: 2015-12-22 09:34:52
 tags: ["CSS","Photoshop","Typografi"]
 categories: ["Design"]
