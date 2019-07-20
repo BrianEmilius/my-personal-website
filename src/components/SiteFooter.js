@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import Styled from "styled-components";
 
 const Footer = Styled.footer`
@@ -8,13 +8,34 @@ const Footer = Styled.footer`
 	padding: 1em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   @media screen and (min-width: 64em) {
     flex-direction: row;
   }
+  a {
+    color: hsl(0, 0%, 97%);
+  }
 `;
 
-export default function SiteFooter() {
+const Icon = Styled.img`
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  display: inline-block;
+`;
+
+const query = graphql`
+  query {
+    github: file(base: { eq: "github-logo.svg" }) {
+      publicURL
+    }
+    twitter: file(base: { eq: "twitter-logo-button.svg" }) {
+      publicURL
+    }
+  }
+`;
+
+function Component({ github, twitter }) {
   return (
     <Footer>
       <section>
@@ -22,16 +43,33 @@ export default function SiteFooter() {
         <p>
           <Link to="/credits">List of credits</Link>
         </p>
-        <p>Made with Gatsby</p>
-        <p>Hosted by Netlify</p>
+        <p>
+          Made with <a href="//www.gatsbyjs.org/">Gatsby</a>
+        </p>
+        <p>
+          Hosted by <a href="//www.netlify.com/">Netlify</a>
+        </p>
       </section>
       <section>
         <p>Copyright &copy; 2015-{new Date().getFullYear()}</p>
       </section>
       <section>
         <h1>Reach out!</h1>
-        some stuff
+        <p>
+          <a href="//twitter.com/BrianEmilius/" title="Twitter">
+            <Icon src={twitter.publicURL} alt="Twitter icon" />
+            <span className="sr-only"> Twitter</span>
+          </a>{" "}
+          <a href="//github.com/BrianEmilius/" title="GitHub">
+            <Icon src={github.publicURL} alt="GitHub octocat icon" />
+            <span className="sr-only"> GitHub</span>
+          </a>
+        </p>
       </section>
     </Footer>
   );
+}
+
+export default function SiteFooter() {
+  return <StaticQuery query={query} render={data => <Component {...data} />} />;
 }

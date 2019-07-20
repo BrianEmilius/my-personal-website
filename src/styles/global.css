@@ -41,3 +41,7 @@ a[target="_blank"]::after {
 	content: "";
 	margin-left: .25em;
 }
+
+.sr-only {
+	display: none;
+}
