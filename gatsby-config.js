@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Brian Emilius",
+    title: "Brian Emilius' Personal Site",
     siteUrl: "https://www.brianemilius.com",
-    description: "A Blog.",
+    description: "A personal website about Brian Emilius.",
     author: "Brian Emilius"
   },
   plugins: [
