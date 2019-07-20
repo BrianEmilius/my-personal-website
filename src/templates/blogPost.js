@@ -57,8 +57,9 @@ export default class BlogPost extends Component {
           <meta property="og:title" content={this.frontmatter.title} />
           <meta property="og:description" content={this.excerpt} />
           <meta property="og:type" content="website" />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:creator" content={this.siteMetadata.author} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:creator" content="@BrianEmilius" />
+          <meta name="twitter:site" content={this.siteMetadata.siteUrl} />
           <meta name="twitter:title" content={this.frontmatter.title} />
           <meta name="twitter:description" content={this.excerpt} />
         </Helmet>
