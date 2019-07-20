@@ -3,7 +3,7 @@ title: Dynamisk font-størrelse
 path: /blog/dynamisk-font-storrelse
 author: Brian Emilius
 twitter: brianemilius
-featured_image:../images/dynamisk-font-storrelse.png
+featured_image: ../images/dynamisk-font-storrelse.png
 date: 2018-04-10 10:49:03
 tags: ["CSS","matematik"]
 categories: ["Design"]
