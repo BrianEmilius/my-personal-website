@@ -57,13 +57,7 @@ export default class BlogPost extends Component {
           <meta property="og:title" content={this.frontmatter.title} />
           <meta property="og:description" content={this.excerpt} />
           <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content={`${this.siteMetadata.siteUrl}${
-              this.frontmatter.featured_image.publicURL
-            }`}
-          />
-          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="@BrianEmilius" />
           <meta name="twitter:site" content={this.siteMetadata.siteUrl} />
           <meta name="twitter:title" content={this.frontmatter.title} />
@@ -107,9 +101,6 @@ export const logQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         path
         title
-        featured_image {
-          publicURL
-        }
       }
     }
     site {

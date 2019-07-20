@@ -48,7 +48,7 @@ exports.createPages = function({ actions, graphql }) {
   `).then(function(result) {
     if (result.errors) return Promise.reject(result.errors);
 
-    async function createCardImage(node) {
+    /* async function createCardImage(node) {
       try {
         const base = await Jimp.read("./src/images/base-card-image.png");
         const font = await Jimp.loadFont(Jimp.FONT_SANS_64_BLACK);
@@ -69,10 +69,10 @@ exports.createPages = function({ actions, graphql }) {
       } catch (error) {
         console.log(error);
       }
-    }
+    } */
 
     return result.data.allMarkdownRemark.edges.forEach(function({ node }) {
-      createCardImage(node);
+      //createCardImage(node);
       createPage({
         path: node.frontmatter.path,
         component: template,

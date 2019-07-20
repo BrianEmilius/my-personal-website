@@ -13,10 +13,6 @@ const Article = Styled.article`
   position: relative;
 `;
 
-const Image = Styled.img`
-  max-width: 100%;
-`;
-
 const Published = Styled.p`
   position: absolute;
   top: -2.2em;
@@ -27,18 +23,9 @@ const Published = Styled.p`
   padding: 0 1em;
 `;
 
-function featuredImage(frontmatter) {
-  if (frontmatter.featured_image && frontmatter.featured_image.publicURL) {
-    return <Image src={frontmatter.featured_image.publicURL} alt="" />;
-  } else {
-    return;
-  }
-}
-
 export default function Card({ excerpt, frontmatter }) {
   return (
     <Article>
-      {featuredImage(frontmatter)}
       <Published>
         <time dateTime={frontmatter.date}>{frontmatter.date}</time>
       </Published>
