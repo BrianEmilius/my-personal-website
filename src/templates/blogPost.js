@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Styled from "styled-components";
 import Helmet from "react-helmet";
 import Layout from "../components/Layout";
-import Gitment from "gitment";
+import Gitalk from "gitalk";
 
 const Article = Styled.article`
   border-left: 1px solid grey;
@@ -18,28 +18,27 @@ const Article = Styled.article`
 export default class BlogPost extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
     const { markdownRemark } = props.data;
     const { frontmatter, html } = markdownRemark;
     const { siteMetadata } = props.data.site;
     this.frontmatter = frontmatter;
     this.html = html;
     this.siteMetadata = siteMetadata;
-    this.comments = React.createRef();
   }
 
   componentDidMount() {
     const title = this.frontmatter.title;
-    const gitment = new Gitment({
-      title,
-      owner: "BrianEmilius",
+    const gitalk = new Gitalk({
+      clientID: "78d9230d901226dec1af",
+      clientSecret: "dfc52df7f16841b01881cd5297371a7860021a90",
       repo: "www.brianemilius.com",
-      oauth: {
-        client_id: "78d9230d901226dec1af",
-        client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
-      }
+      owner: "BrianEmilius",
+      admin: ["BrianEmilius"],
+      id: title,
+      distractionFreeMode: false
     });
-
-    this.comments.current.appendChild(gitment.render());
+    gitalk.render("gitalk");
   }
 
   render() {
@@ -70,8 +69,9 @@ export default class BlogPost extends Component {
             </time>
           </p>
           <div dangerouslySetInnerHTML={{ __html: this.html }} />
-          <section ref={this.comments}>
+          <section>
             <h1>Comments</h1>
+            <div id="gitalk" />
           </section>
         </Article>
       </Layout>
