@@ -39,9 +39,8 @@ export default class BlogPost extends Component {
       admin: ["BrianEmilius"],
       id: path,
       title: `Comments on '${title}'`,
-      body: `This issue exists to host comments for ${url}/${path}`,
-      distractionFreeMode: false,
-      createIssueManually: true
+      body: `This issue exists to host comments for ${url}${path}`,
+      distractionFreeMode: false
     });
     gitalk.render("gitalk");
   }
