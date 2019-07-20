@@ -3,7 +3,7 @@ title: Signed Web Tokens
 path: /blog/signed-web-tokens
 author: Brian Emilius
 twitter: brianemilius
-featured_image:
+featured_image: ../images/signed-web-tokens.png
 description:
 tags: ["hmac","sha","hash","JSON"]
 categories: ["Kryptografi"]

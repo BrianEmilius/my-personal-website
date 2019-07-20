@@ -3,7 +3,7 @@ title: target="_blank"
 path: /blog/target-_blank
 author: Brian Emilius
 twitter: brianemilius
-featured_image: ../images/external-link.jpg
+featured_image: ../images/target-_blank.jpg
 description:
 date: 2018-05-01 22:01:16
 tags: ["UX","a11y","best-practice","html"]

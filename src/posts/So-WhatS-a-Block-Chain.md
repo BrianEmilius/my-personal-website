@@ -3,7 +3,7 @@ title: So, What's A Block Chain?
 path: /blog/so-whats-a-block-chain
 author: Brian Emilius
 twitter: brianemilius
-featured_image:
+featured_image: ../images/so-whats-a-block-chain.png
 description:
 tags: ["JavaScript","node.js","crypto currency","block chain"]
 categories: ["Kryptografi","Block Chain"]

@@ -3,7 +3,7 @@ title: Single Page Application med ren JavaScript
 path: /blog/single-page-application-med-ren-javascript
 author: Brian Emilius
 twitter: brianemilius
-featured_image:
+featured_image: ../images/single-page-application-med-ren-javascript.png
 description:
 date: 2018-04-16 16:34:43
 tags: ["SPA","gulp","JavaScript","templates","router"]
