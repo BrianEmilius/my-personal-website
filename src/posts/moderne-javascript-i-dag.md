@@ -4,7 +4,7 @@ path: /blog/moderne-javascript-i-dag
 date: 2018-08-10 09:12:15
 author: Brian Emilius
 twitter: brianemilius
-featured_image:
+featured_image: ../images/moderne-javascript-i-dag.png
 description:
 tags: ["babel.js","node.js","es6 modules"]
 categories: ["Guides"]
