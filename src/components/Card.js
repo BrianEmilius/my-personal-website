@@ -9,11 +9,22 @@ const Article = Styled.article`
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+  position: relative;
 `;
 
 const Image = Styled.img`
   max-width: 100%;
+`;
+
+const Published = Styled.p`
+  position: absolute;
+  top: -2.2em;
+  left: -0.04em;
+  background-color: hsl(0, 0%, 97%);
+  border: 1px solid grey;
+  border-bottom: none;
+  padding: 0 1em;
 `;
 
 function featuredImage(frontmatter) {
@@ -28,9 +39,9 @@ export default function Card({ excerpt, frontmatter }) {
   return (
     <Article>
       {featuredImage(frontmatter)}
-      <p>
+      <Published>
         <time dateTime={frontmatter.date}>{frontmatter.date}</time>
-      </p>
+      </Published>
       <h1>
         <Link to={frontmatter.path}>{frontmatter.title}</Link>
       </h1>
