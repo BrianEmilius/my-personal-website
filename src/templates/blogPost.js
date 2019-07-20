@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { graphql } from "gatsby";
 import Styled from "styled-components";
 import Helmet from "react-helmet";
@@ -15,62 +15,68 @@ const Article = Styled.article`
   }
 `;
 
-export default function BlogPost(props) {
-  const { markdownRemark } = props.data;
-  const { frontmatter, html } = markdownRemark;
-  const { siteMetadata } = props.data.site;
-
-  function getComments() {
-    try {
-      const gitment = new Gitment({
-        id: frontmatter.title,
-        owner: "brianemilius",
-        repo: "www.brianemilius.com",
-        oauth: {
-          client_id: "78d9230d901226dec1af",
-          client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
-        }
-      });
-
-      return gitment.render().innerHTML;
-    } catch (error) {
-      console.log(error);
-    }
+export default class BlogPost extends Component {
+  constructor(props) {
+    super(props);
+    const { markdownRemark } = props.data;
+    const { frontmatter, html } = markdownRemark;
+    const { siteMetadata } = props.data.site;
+    this.frontmatter = frontmatter;
+    this.html = html;
+    this.siteMetadata = siteMetadata;
+    this.comments = React.createRef();
   }
 
-  getComments();
+  componentDidMount() {
+    const title = this.frontmatter.title;
+    const gitment = new Gitment({
+      id: title,
+      owner: "brianemilius",
+      repo: "www.brianemilius.com",
+      oauth: {
+        client_id: "78d9230d901226dec1af",
+        client_secret: "dfc52df7f16841b01881cd5297371a7860021a90"
+      }
+    });
 
-  return (
-    <Layout>
-      <Helmet>
-        <link
-          rel="cannonical"
-          href={`${siteMetadata.siteUrl}${frontmatter.path}`}
-        />
-      </Helmet>
-      <Article
-        itemProp="//schema.org/mainEntityOfPage"
-        itemScope={true}
-        itemType="//schema.org/BlogPosting"
-      >
-        <h1 itemProp="//schema.org/headline">{frontmatter.title}</h1>
-        <p>
-          <span itemProp="//schema.org/author">{siteMetadata.author}</span>,{" "}
-          <time
-            dateTime={frontmatter.date}
-            itemProp="//schema.org/datePublished"
-          >
-            {frontmatter.date}
-          </time>
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <section>
-          <h1>Comments</h1>
-          <div dangerouslySetInnerHTML={{ __html: getComments() }} />
-        </section>
-      </Article>
-    </Layout>
-  );
+    this.comments.current.appendChild(gitment.render());
+  }
+
+  render() {
+    return (
+      <Layout>
+        <Helmet>
+          <link
+            rel="cannonical"
+            href={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
+          />
+        </Helmet>
+        <Article
+          itemProp="//schema.org/mainEntityOfPage"
+          itemScope={true}
+          itemType="//schema.org/BlogPosting"
+        >
+          <h1 itemProp="//schema.org/headline">{this.frontmatter.title}</h1>
+          <p>
+            <span itemProp="//schema.org/author">
+              {this.siteMetadata.author}
+            </span>
+            ,{" "}
+            <time
+              dateTime={this.frontmatter.date}
+              itemProp="//schema.org/datePublished"
+            >
+              {this.frontmatter.date}
+            </time>
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: this.html }} />
+          <section ref={this.comments}>
+            <h1>Comments</h1>
+          </section>
+        </Article>
+      </Layout>
+    );
+  }
 }
 
 export const logQuery = graphql`
