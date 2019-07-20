@@ -29,14 +29,19 @@ export default class BlogPost extends Component {
 
   componentDidMount() {
     const title = this.frontmatter.title;
+    const path = this.frontmatter.path;
+    const url = this.siteMetadata.siteUrl;
     const gitalk = new Gitalk({
       clientID: "78d9230d901226dec1af",
       clientSecret: "dfc52df7f16841b01881cd5297371a7860021a90",
       repo: "www.brianemilius.com",
       owner: "BrianEmilius",
       admin: ["BrianEmilius"],
-      id: title,
-      distractionFreeMode: false
+      id: path,
+      title: `Comments on '${title}'`,
+      body: `This issue exists to host comments for ${url}/${path}`,
+      distractionFreeMode: false,
+      createIssueManually: true
     });
     gitalk.render("gitalk");
   }
