@@ -37,7 +37,6 @@
     "gatsby-source-filesystem": "^2.1.1",
     "gatsby-transformer-remark": "^2.5.0",
     "gitment": "0.0.3",
-    "netlify-auth-providers": "^1.0.0-alpha5",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
