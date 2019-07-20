@@ -31,7 +31,7 @@ export default class BlogPost extends Component {
     const title = this.frontmatter.title;
     const gitment = new Gitment({
       id: title,
-      owner: "brianemilius",
+      owner: "BrianEmilius",
       repo: "www.brianemilius.com",
       oauth: {
         client_id: "78d9230d901226dec1af",
