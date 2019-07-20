@@ -21,7 +21,7 @@
 body {
 	margin: 0;
 	font-family: "Ubuntu", Verdana, sans-serif;
-	font-size: calc(1.2em + (24 - 19.2) * (100vw - 412px) / (1920 - 412));
+	font-size: calc(19.2px + (24 - 19.2) * (100vw - 412px) / (1920 - 412));
 	overflow-y: scroll;
 	background-color: hsl(0, 0%, 85%);
 }
