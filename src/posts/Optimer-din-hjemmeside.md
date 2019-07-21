@@ -1,183 +1,184 @@
 ---
-title: Optimer din hjemmeside
-path: /blog/optimer-din-hjemmeside
+title: Optimize Your Website
+path: /blog/optimize-your-website
 author: Brian Emilius
 twitter: brianemilius
-featured_image: ../images/optimer-din-hjemmeside.png
 date: 2018-04-17 10:26:57
-tags: ["CSS","JavaScript","optimering","best-practice"]
+tags: ["CSS","JavaScript","optimization","best-practice"]
 categories: ["Guides"]
 ---
-**Hvis du nogensinde har brugt Google Chromes Audit værktøj, har du sikkert bemærket at nærmest uanset hvad du gør, så vil Audit fortælle dig at din CSS blokerer indlæsningen af din side (render-blocking).**
+**If you have ever used Google Chrome's Audit tool you've probably noticed that almost no matter what you do Audit will tell you that your CSS is blocking the rendering of your site.**
 
-Audit fortæller dig desuden, hvis du får kigget lidt ned i rapportens detaljer, at Google anbefaler at indlæse den kritiske del af dit stylesheet direkte i `<head>`-sektionen og indlæsningen af resten af dine stylesheets skal udsættes.
+If you take a look at the report details Google recommends loading critical parts of your styling directly in the `head` section and deferring non-critical styling.
 
-<!-- more -->
+![Google Chrome Audit performance report example](../images/audit.png)
 
-![Google Chrome Audit eksempel på perfomance raport](../images/audit.png)
+So what is critical styling? What does render-blocking even mean?
 
-Hvad er så kritisk styling, og hvad er render-blocking?
+When you load a website page with your browser you put it to work. From the server, your browser receives a bunch of HTML, CSS, and in most cases JavaScript. The browser needs to interpret all this code and translate it into something that looks good and is understandable to any regular page-visitor. In other words text, shapes, colours, and animations. This is what we call rendering.
 
-Når du med din browser loader en hjemmeside, bliver browseren sat på arbejde. Fra serveren modtager browseren en bunke HTML, CSS, og i de fleste tilfælde noget JavaScript. Browseren skal fortolke al denne kode og omdanne det til noget, der ser godt ud og er forståeligt for en almindelig besøgende. Dette kaldes rendering.
-
-Alle stylesheets og JavaScripts, der bliver linket i `<head>`-sektionen skal downloades og behandles af browseren, inden browseren kan gå igang med at fortolke HTML-en. Det vil sige at følgende kode blokerer browseren i at udføre sit job hurtigt, særligt på enheder med en lidt langsommere forbindelse:
+All stylesheets and scripts that you place in the `head` section must first be downloaded and then treated by the browser before the browser can start interpreting what to do and show. This means that any external script or stylesheet is blocking the browser from doing its job quickly - especially on devices with a slow connection.
 
 ```HTML
 <html>
-	<head>
-		<title>Langsom hjemmeside</title>
+		<head>
+				<title>Slow Website</title>
 
-		<link rel="stylesheet" href="/css/mainstyling.css">
-		<link rel="stylesheet" href="/css/fonts.css">
-		<link rel="stylesheet" href="/css/fancybox.css">
+				<link rel="stylesheet" href="/css/mainstyling.css">
+				<link rel="stylesheet" href="/css/fonts.css">
+				<link rel="stylesheet" href="/css/fancybox.css">
 
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/app.js"></script>
-		<script src="/js/fancybox.js"></script>
-		<script src="/js/googleadwords.min.js"></script>
-	</head>
-	<body>
-	<!-- indhold -->
-	</body>
+				<script src="/js/jquery.min.js"></script>
+				<script src="/js/app.js"></script>
+				<script src="/js/fancybox.js"></script>
+				<script src="/js/googleadwords.min.js"></script>
+		</head>
+		<body>
+		<!-- contents that needs to render -->
+		</body>
 </html>
 ```
 
-I ovenstående eksempel skal 7 filer downloades og fortolkes inden browseren overhovedet kan gå igang med rendering. Det er hvad vi kalder *render-blocking*.
+In the above example, 7 external files need to download before the browser can even begin to start rendering. This is what we call *render-blocking*.
 
-En kritisk styling hænger sammen med hvordan vi gerne vil have at vores hjemmeside overordnet ser ud. Det er for eksempel sidens layout, de vigtigste farver og skriftstørrelserne.
+Critical styling has to do with how we want our website to look. It has to do with the layout of your site, the most important colours, font faces and font sizes.
 
-## Løsningen
+## A Solution
 
-Løsningen er to-delt. Vi skal identificere hvad der er kritisk styling og lægge det direkte i `<head>`-sektionen i et `<style>`-tag, og vi skal indlæse resten af vores stylesheets og JavaScripts efter vores DOM er indlæst.
+I suggest a two-part solution:
+* We need to identify what our critical styling is, and
+* defer downloading our stylesheets and scripts till after the DOM is loaded.
 
-### Kritisk styling
+### Critical Styling
 
-Hvad der er kritisk for lige præcis din hjemmeside, afhænger af den enkelte side. Du bliver nødt til at vurdere hvor meget, eller hvor lidt styling du gerne vil have med ved browserens første rendering. Spørg dig selv: "Hvor lidt skal der til, for at siden tilnærmelsesvis ser ud som jeg gerne vil have?". Vælg det CSS ud som kræves og læg det i et `<style>`-tag:
+What critical styling is on your website depends entirely on the individual site. You will have to determine how much or how little styling you need for the first rendering. Ask yourself this question: "How little does it take for my site to approximate the look I want?" Then choose the CSS required for this and place it in a `<style>` tag in the `head` section.
 
 ```HTML
 <html>
-	<head>
-		<title>Hurtigere hjemmeside</title>
-		<style>
-    :root {
-      --colorPrimaryForeground: hsl(0, 0%, 7%);
-      --colorPrimaryBackground: hsl(0, 0%, 98%);
-      --fontStack: Arial, Verdana, sans-serif;
-      --fontSize: 1em;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background-color: var(--colorPrimaryBackground);
-      color: var(--colorPrimaryForeground);
-      font: normal 400 var(--fontSize)/100% var(--fontStack);
-    }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(50px, 1fr));
-      grid-template-rows: 100px auto 50px;
-    }
-    </style>
-	</head>
-	<body>
-	<!-- indhold -->
-	</body>
+    <head>
+        <title>A Slightly Faster Website</title>
+        <style>
+        :root {
+            --colorPrimaryForeground: hsl(0, 0%, 7%);
+            --colorPrimaryBackground: hsl(0, 0%, 98%);
+            --fontStack: Arial, Verdana, sans-serif;
+            --fontSize: 1em;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--colorPrimaryBackground);
+            color: var(--colorPrimaryForeground);
+            font: normal 400 var(--fontSize)/100% var(--fontStack);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(50px, 1fr));
+            grid-template-rows: 100px auto 50px;
+        }
+        </style>
+    </head>
+    <body>
+    <!-- contents that needs to render -->
+    </body>
 </html>
 ```
 
-## Udsæt indlæsning af ikke-kritisk styling
+### Defer Downloading Of Non-Critical Styling And Scripts
 
-Når selve siden er blevet renderet og vores DOM er indlæst, kan vi hente resten af vores stylesheets og scripts. JavaScripts er rigtig lette at indlæse på denne måde. Du skal blot tilføje attributten `defer` til dit script-tag:
+When the page has rendered and the DOM is loaded we can download the rest of our stylesheets and scripts. JavaScripts are real easy to load in this manner. All you need to do is add the attribute `defer` to the script tag:
 
-```html
+```HTML
 <script src="/js/jquery.min.js" defer></script>
 <script src="/js/app.js" defer></script>
 <script src="/js/fancybox.js" defer></script>
 <script src="/js/googleadwords.min.js" defer></script>
 ```
 
-Det er i øvrigt rigtig god praksis at lægge dine JavaScripts til sidste i dit HTML-dokument; dvs. lige før `</body>`.
+Furthermore, I consider it good praxis to place script tags at the very end of your HTML document right before the `</body>` tag.
 
-Stylesheets er en lidt mere kompliceret sag. Vi skal lave et lille JavaScript, der injecter nogle `<link>`-tags efter DOM er indlæst.
+Stylesheets are a bit more complicated to handle. We need to write a short JavaScript function that will inject `<link>` tags after the DOM has loaded.
 
 ```JavaScript
 const cssLoader = function (src) {
-	const stylesheet = document.createElement('link');
-	stylesheet.href = src;
-	stylesheet.rel = 'stylesheet';
-	stylesheet.type = 'text/css';
-	document.getElementsByTagName('head')[0].appendChild(stylesheet);
-};
-```
-
-Denne funktion kan vi bruge i et lille script inde i en event-listener:
-
-```JavaScript
-document.addEventListener('DOMContentLoaded', () => {
-	cssLoader('/css/mainstyling.css');
-	cssLoader('/css/fonts.css');
-	cssLoader('/css/fancybox.css');
-});
-```
-
-På denne måde kommer vores samlede HTML-dokument til at se således ud:
-
-```HTML
-<html>
-	<head>
-		<title>Hurtigere hjemmeside</title>
-		<style>
-    :root {
-      --colorPrimaryForeground: hsl(0, 0%, 7%);
-      --colorPrimaryBackground: hsl(0, 0%, 98%);
-      --fontStack: Arial, Verdana, sans-serif;
-      --fontSize: 1em;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background-color: var(--colorPrimaryBackground);
-      color: var(--colorPrimaryForeground);
-      font: normal 400 var(--fontSize)/100% var(--fontStack);
-    }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(50px, 1fr));
-      grid-template-rows: 100px auto 50px;
-    }
-    </style>
-	</head>
-	<body>
-	<!-- indhold -->
-	<script src="/js/jquery.min.js" defer></script>
-  <script src="/js/app.js" defer></script>
-  <script src="/js/fancybox.js" defer></script>
-  <script src="/js/googleadwords.min.js" defer></script>
-	<script>
-  const cssLoader = function (src) {
     const stylesheet = document.createElement('link');
     stylesheet.href = src;
     stylesheet.rel = 'stylesheet';
     stylesheet.type = 'text/css';
     document.getElementsByTagName('head')[0].appendChild(stylesheet);
-  };
-  document.addEventListener('DOMContentLoaded', () => {
+};
+```
+
+This function can be used inside an event listener:
+
+```JavaScript
+document.addEventListener('DOMContentLoaded', () => {
     cssLoader('/css/mainstyling.css');
     cssLoader('/css/fonts.css');
     cssLoader('/css/fancybox.css');
-  });
-  </script>
-	</body>
+});
+```
+
+This makes the entire HTML document look as such:
+
+```HTML
+<html>
+    <head>
+        <title>Much Faster Website</title>
+        <style>
+        :root {
+            --colorPrimaryForeground: hsl(0, 0%, 7%);
+            --colorPrimaryBackground: hsl(0, 0%, 98%);
+            --fontStack: Arial, Verdana, sans-serif;
+            --fontSize: 1em;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--colorPrimaryBackground);
+            color: var(--colorPrimaryForeground);
+            font: normal 400 var(--fontSize)/100% var(--fontStack);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(50px, 1fr));
+            grid-template-rows: 100px auto 50px;
+        }
+        </style>
+    </head>
+    <body>
+
+    <!-- contents that needs to render -->
+    
+    <script src="/js/jquery.min.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/fancybox.js" defer></script>
+    <script src="/js/googleadwords.min.js" defer></script>
+    <script>
+    const cssLoader = function (src) {
+        const stylesheet = document.createElement('link');
+        stylesheet.href = src;
+        stylesheet.rel = 'stylesheet';
+        stylesheet.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+        cssLoader('/css/mainstyling.css');
+        cssLoader('/css/fonts.css');
+        cssLoader('/css/fancybox.css');
+    });
+    </script>
+    </body>
 </html>
 ```
 
-Den eneste lille ting vi mangler at gøre nu, er at fortælle browseren hvad den skal gøre, hvis JavaScript er slået fra:
+The only thing we now need to do to perfect this is to make sure the stylesheets are loaded even if the browser has JavaScript switched off.
 
-```html
+```HTML
 <noscript>
 <link rel="stylesheet" href="/css/mainstyling.css">
 <link rel="stylesheet" href="/css/fonts.css">
@@ -185,6 +186,6 @@ Den eneste lille ting vi mangler at gøre nu, er at fortælle browseren hvad den
 </noscript>
 ```
 
-Prøv at benytte denne metode på dit næste projekt og læg mærke til, om det gør noget ved Audits performance rapport.
+Try this method on your next project and see if you can notice whether it makes a difference in your Audit performance report.
 
-Jeg kunne rigtig godt tænke mig at høre fra dig om dine oplevelser med denne metode i kommentarfeltet herunder.
+I would love to hear from you about your experiences with this method in the commentaries below.
