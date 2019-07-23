@@ -1,6 +1,6 @@
 ---
 title: "How To Get a Comment Section On Your Static Site"
-path: "/blog/how-to-get-a-comment-section-on-your-static-site"
+path: "/blog/get-a-comment-section-on-your-static-site"
 date: 2019-07-23 11:00:00
 author: "Brian Emilius"
 twitter: "brianemilius"
