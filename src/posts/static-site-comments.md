@@ -24,9 +24,9 @@ A recent trend in web development has been to use something called Static Site G
 Static Site Generators lets the developer work with templates and web components that in the end are generated into static HTML pages.
 
 Some of the popular Static Site Generators are
-* Hexo
-* Jekyll
-* Gatsby
+* [Hexo](https://hexo.io/)
+* [Jekyll](https://jekyllrb.com/)
+* [Gatsby](https://www.gatsbyjs.org/)
 
 ## Backend
 A backend in web development is for generating data and receiving and storing data. This includes data manipulation.
@@ -49,11 +49,11 @@ Some disadvantages of having a backend might include
 ## Comments With No Backend
 Now that we know the terminology, let us have a look at one solution to the following problem:
 
-I want to have a comment section on my static website, but I have no backend, so I don't know where to store the comments.
+> I want to have a comment section on my static website, but I have no backend, so I don't know where to store the comments.
 
 There are many ways to solve this problem. Most of them use social media platforms as the engine under the hood. Privacy is a constant concern of mine, so I want to solve my problem without using technology that tracks my users.
 
-To the rescue comes GitHub and Gitalk.
+To the rescue comes [GitHub](https://github.com) and [Gitalk](https://github.com/gitalk/gitalk/).
 
 GitHub is the go-to platform for collaboration with code. Every project on GitHub exists in something called a repository. Repositories can have connected issues, and you can comment on issues. This is the technology we are going to leverage.
 
@@ -114,9 +114,11 @@ gitalk.render('gitalk-container')
 </script>
 ```
 
-Insert your Client ID and Client Secret from step 1 into the script, change `owner`, and `admin` to your GitHub username, and `repo` the name of your repository that you selected in step 2.
+Insert your Client ID and Client Secret from step 1 into the script, change `owner`, and `admin` to your GitHub username, and `repo` to the name of your repository that you selected in step 2.
 
 ### Step 4
 Open each page with a comment section in your browser and click the Init button. This will create an issue for the comment section on GitHub and let your visitors use the new functionality.
 
-I use this method on my website, however, I created my website with Gatsby. This means I had to use a slightly different approach. If you are interested, you can take a look at my website repository on GitHub to see how I did it.
+I use this method on my website, however, I created my website with Gatsby. This means I had to use a slightly different approach. If you are interested, you can take a look at [my website repository on GitHub](https://github.com/BrianEmilius/my-personal-website) to see how I did it.
+
+Let me know your thoughts on this method in the comments below!
