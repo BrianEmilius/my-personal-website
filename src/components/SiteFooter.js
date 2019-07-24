@@ -22,6 +22,7 @@ const Icon = Styled.img`
   width: 2em;
   line-height: 2em;
   display: inline-block;
+  fill: currentColor;
 `;
 
 const query = graphql`
@@ -32,10 +33,13 @@ const query = graphql`
     twitter: file(base: { eq: "twitter-logo-button.svg" }) {
       publicURL
     }
+    dev: file(base: { eq: "dev-badge.svg" }) {
+      publicURL
+    }
   }
 `;
 
-function Component({ github, twitter }) {
+function Component({ github, twitter, dev }) {
   return (
     <Footer>
       <section>
@@ -63,6 +67,10 @@ function Component({ github, twitter }) {
           <a href="//github.com/BrianEmilius/" title="GitHub">
             <Icon src={github.publicURL} alt="GitHub octocat icon" />
             <span className="sr-only"> GitHub</span>
+          </a>{" "}
+          <a href="https://dev.to/brianemilius" title="DEV Community">
+            <Icon src={dev.publicURL} alt="Brian Emilius's DEV Profile" />
+            <span className="sr-only"> DEV Community</span>
           </a>
         </p>
       </section>
