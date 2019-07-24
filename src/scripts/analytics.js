@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function Load() {
   }
 });
 
-document.addEventListener("beforeunload", async function Unload() {
+window.addEventListener("beforeunload", async function Unload() {
   requestBody.length = TimeMe.getTimeOnCurrentPageInSeconds();
   fetch("https://api.brianemilius.com/analytics", {
     method: "POST",
