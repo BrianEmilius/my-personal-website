@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function Load() {
   requestBody.page = location.pathname;
 
   try {
-    const response = await fetch("//extreme-ip-lookup.com/json/");
+    const response = await fetch("https://extreme-ip-lookup.com/json/");
     if (response.ok) {
       const data = await response.json();
       requestBody.country = data.countryCode;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function Load() {
 
 window.addEventListener("beforeunload", async function Unload() {
   requestBody.length = TimeMe.getTimeOnCurrentPageInSeconds();
-  fetch("http://api.brianemilius.com:1337/analytics", {
+  fetch("https://api.brianemilius.com/analytics", {
     method: "POST",
     mode: "cors",
     headers: {
