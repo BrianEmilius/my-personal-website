@@ -36,7 +36,7 @@ export default class BlogPost extends Component {
       clientID: "78d9230d901226dec1af",
       clientSecret: "dfc52df7f16841b01881cd5297371a7860021a90",
       repo: "www.brianemilius.com",
-      owner: "BrianEmilius",
+      owner: "be-comments",
       admin: ["BrianEmilius"],
       id: path,
       title: `Comments on '${title}'`,
