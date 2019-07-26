@@ -2,6 +2,7 @@
 title: "How To Get a Comment Section On Your Static Site"
 path: "/blog/get-a-comment-section-on-your-static-site"
 date: 2019-07-23 11:00:00
+image: "../images/static-site-comments.jpg"
 author: "Brian Emilius"
 twitter: "brianemilius"
 ---
@@ -122,3 +123,5 @@ Open each page with a comment section in your browser and click the Init button.
 I use this method on my website, however, I created my website with Gatsby. This means I had to use a slightly different approach. If you are interested, you can take a look at [my website repository on GitHub](https://github.com/BrianEmilius/my-personal-website) to see how I did it.
 
 Let me know your thoughts on this method in the comments below!
+
+<a href="https://www.freepik.com/free-photos-vectors/heart">Cover photo created by rawpixel.com - www.freepik.com</a>
