@@ -5,6 +5,9 @@ import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import Gitalk from "gitalk";
 
+import { fluidImage } from "../pages/blog";
+import CoverImage from "../components/CoverImage";
+
 const Article = Styled.article`
   border-left: 1px solid grey;
   border-right: 1px solid grey;
@@ -68,6 +71,7 @@ export default class BlogPost extends Component {
           itemScope={true}
           itemType="//schema.org/BlogPosting"
         >
+          <CoverImage frontmatter={this.frontmatter} />
           <h1 itemProp="//schema.org/headline">{this.frontmatter.title}</h1>
           <p>
             <span itemProp="//schema.org/author">
@@ -101,6 +105,9 @@ export const logQuery = graphql`
         date(formatString: "YYYY-MM-DD")
         path
         title
+        image {
+          ...fluidImage
+        }
       }
     }
     site {
