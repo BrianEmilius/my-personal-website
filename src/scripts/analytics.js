@@ -4,7 +4,7 @@ const requestBody = {
   page: null
 };
 
-document.addEventListener("DOMContentLoaded", async function Load() {
+async function Load() {
   TimeMe.initialize({
     currentPageName: location.pathname,
     idleTimeoutInSeconds: 30
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", async function Load() {
   } catch (error) {
     requestBody.country = "NONE";
   }
-});
+}
 
-window.addEventListener("beforeunload", async function Unload() {
+async function Unload() {
   requestBody.length = TimeMe.getTimeOnCurrentPageInSeconds();
   fetch("https://api.brianemilius.com/analytics", {
     method: "POST",
@@ -39,4 +39,7 @@ window.addEventListener("beforeunload", async function Unload() {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error));
-});
+}
+
+document.addEventListener("DOMContentLoaded", Load);
+window.addEventListener("beforeunload", Unload);
