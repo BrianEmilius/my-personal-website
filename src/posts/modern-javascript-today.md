@@ -4,6 +4,7 @@ path: /blog/modern-javascript-today
 date: 2018-08-10 09:12:15
 author: Brian Emilius
 twitter: brianemilius
+image: ../images/modern-javascript-today.jpg
 tags: ["babel.js","node.js","es6 modules"]
 categories: ["Guides"]
 ---
@@ -70,3 +71,5 @@ Place this in `package.json`:
 When I execute `$npm run dev` Babel.js transpiles my ES6 modules on-the-fly.
 
 I use `$ npm run build` when I am done with my application. This command creates a new folder (`.dist`) which contains all my transpiled code. It is this folder I distribute to my production environment.
+
+<a href="https://www.freepik.com/free-photos-vectors/business">Cover photo created by jannoon028 - www.freepik.com</a>
