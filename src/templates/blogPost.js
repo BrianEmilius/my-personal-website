@@ -67,7 +67,7 @@ export default class BlogPost extends Component {
       <Layout title={this.frontmatter.title}>
         <Helmet>
           <link
-            rel="cannonical"
+            rel="canonical"
             href={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
           />
           <meta
