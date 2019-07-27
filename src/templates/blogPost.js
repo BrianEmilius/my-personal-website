@@ -33,6 +33,10 @@ export default class BlogPost extends Component {
   }
 
   componentDidMount() {
+    this.getComments();
+  }
+
+  getComments() {
     const title = this.frontmatter.title;
     const path = this.frontmatter.path;
     const url = this.siteMetadata.siteUrl;
