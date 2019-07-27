@@ -50,6 +50,18 @@ export default class BlogPost extends Component {
     gitalk.render("gitalk");
   }
 
+  getOGImage(site, frontmatter) {
+    if (frontmatter.image)
+      return (
+        <meta
+          property="og:image"
+          content={`${site.siteUrl}${
+            frontmatter.image.childImageSharp.fluid.src
+          }`}
+        />
+      );
+  }
+
   render() {
     return (
       <Layout title={this.frontmatter.title}>
@@ -58,9 +70,14 @@ export default class BlogPost extends Component {
             rel="cannonical"
             href={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
           />
+          <meta
+            property="og:url"
+            content={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
+          />
           <meta property="og:title" content={this.frontmatter.title} />
           <meta property="og:description" content={this.excerpt} />
           <meta property="og:type" content="website" />
+          {this.getOGImage(this.siteMetadata, this.frontmatter)}
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content="@BrianEmilius" />
           <meta name="twitter:site" content={this.siteMetadata.siteUrl} />
