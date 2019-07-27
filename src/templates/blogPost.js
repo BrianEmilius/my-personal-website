@@ -97,7 +97,7 @@ export default class BlogPost extends Component {
             <span
               itemScope={true}
               itemType="https://schema.org/author"
-              itemProp="https://schema.org/name"
+              itemProp="https://schema.org/person"
             >
               {this.siteMetadata.author}
             </span>
