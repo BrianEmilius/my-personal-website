@@ -3,6 +3,7 @@ title: Optimize Your Website
 path: /blog/optimize-your-website
 author: Brian Emilius
 twitter: brianemilius
+image: ../images/optimize-your-website.jpg
 date: 2018-04-17 10:26:57
 tags: ["CSS","JavaScript","optimization","best-practice"]
 categories: ["Guides"]
@@ -189,3 +190,5 @@ The only thing we now need to do to perfect this is to make sure the stylesheets
 Try this method on your next project and see if you can notice whether it makes a difference in your Audit performance report.
 
 I would love to hear from you about your experiences with this method in the commentaries below.
+
+<a href="https://www.freepik.com/free-photos-vectors/background">Cover photo created by Waewkidja - www.freepik.com</a>
