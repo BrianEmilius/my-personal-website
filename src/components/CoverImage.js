@@ -17,11 +17,7 @@ export default function CoverImage({ frontmatter }) {
   if (frontmatter.image) {
     return (
       <ImageContainer>
-        <Img
-          itemProp="https://schema.org/image"
-          fluid={frontmatter.image.childImageSharp.fluid}
-          alt=""
-        />
+        <Img fluid={frontmatter.image.childImageSharp.fluid} alt="" />
       </ImageContainer>
     );
   }
