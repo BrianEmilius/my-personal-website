@@ -44,8 +44,8 @@ const Component = function({ file }) {
     <Hero Tag="section" fluid={file.childImageSharp.fluid}>
       <Paragraph>
         Hello, World! My name is{" "}
-        <strong itemProp="//schema.org/Author">Brian Emilius</strong>.<br />I
-        teach web development.
+        <strong itemProp="https://schema.org/Author">Brian Emilius</strong>.
+        <br />I teach web development.
       </Paragraph>
     </Hero>
   );

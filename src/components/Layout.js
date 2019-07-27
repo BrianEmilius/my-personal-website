@@ -18,7 +18,7 @@ const query = graphql`
 
 const Component = function({ children, data, title }) {
   return (
-    <div itemScope={true} itemType="//schema.org/WebPage">
+    <div itemScope={true} itemType="https://schema.org/WebPage">
       <SEO title={title} lang="en" />
       <SiteHeader />
       {children}

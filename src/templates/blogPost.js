@@ -85,20 +85,22 @@ export default class BlogPost extends Component {
           <meta name="twitter:description" content={this.excerpt} />
         </Helmet>
         <Article
-          itemProp="//schema.org/mainEntityOfPage"
+          itemProp="https://schema.org/mainEntityOfPage"
           itemScope={true}
-          itemType="//schema.org/BlogPosting"
+          itemType="https://schema.org/BlogPosting"
         >
           <CoverImage frontmatter={this.frontmatter} />
-          <h1 itemProp="//schema.org/headline">{this.frontmatter.title}</h1>
+          <h1 itemProp="https://schema.org/headline">
+            {this.frontmatter.title}
+          </h1>
           <p>
-            <span itemProp="//schema.org/author">
+            <span itemProp="https://schema.org/author">
               {this.siteMetadata.author}
             </span>
             ,{" "}
             <time
               dateTime={this.frontmatter.date}
-              itemProp="//schema.org/datePublished"
+              itemProp="https://schema.org/datePublished"
             >
               {this.frontmatter.date}
             </time>
