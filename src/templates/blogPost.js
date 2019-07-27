@@ -89,18 +89,15 @@ export default class BlogPost extends Component {
           itemScope={true}
           itemType="https://schema.org/BlogPosting"
         >
-          <CoverImage
-            frontmatter={this.frontmatter}
-            itemProp="https://schema.org/image"
-          />
+          <CoverImage frontmatter={this.frontmatter} />
           <h1 itemProp="https://schema.org/headline">
             {this.frontmatter.title}
           </h1>
           <p>
             <span
               itemScope={true}
-              itemType="https://schema.org/person"
-              itemProp="https://schema.org/author"
+              itemType="https://schema.org/author"
+              itemProp="https://schema.org/name"
             >
               {this.siteMetadata.author}
             </span>
