@@ -7,6 +7,19 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Brian Emilius' Personal Site",
+        short_name: "BE Site",
+        start_url: "/",
+        background_color: "#242442",
+        theme_color: "#242442",
+        display: "standalone",
+        icon: "./src/images/icon.png",
+        crossOrigin: "use-credentials"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
