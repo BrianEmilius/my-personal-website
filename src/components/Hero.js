@@ -1,19 +1,24 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import Styled from "styled-components";
+import BackgroundImage from "gatsby-background-image";
 
 const imageQuery = graphql`
   query {
-    file(base: { eq: "computer-screens-large.jpg" }) {
-      publicURL
+    file(relativePath: { eq: "computer-screens-large.jpg" }) {
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
 `;
 
 const Component = function({ file }) {
-  const Hero = Styled.section`
-		height: 95vh;
-		background-image: url(${file.publicURL});
+  const Hero = Styled(BackgroundImage)`
+    height: 95vh;
+    background-color: hsl(240, 30%, 20%);
 		background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -36,7 +41,7 @@ const Component = function({ file }) {
     }
   `;
   return (
-    <Hero>
+    <Hero Tag="section" fluid={file.childImageSharp.fluid}>
       <Paragraph>
         Hello, World! My name is{" "}
         <strong itemProp="//schema.org/Author">Brian Emilius</strong>.<br />I
