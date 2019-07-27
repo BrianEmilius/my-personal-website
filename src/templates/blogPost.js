@@ -5,7 +5,8 @@ import Helmet from "react-helmet";
 import Layout from "../components/Layout";
 import Gitalk from "gitalk";
 
-import { fluidImage } from "../pages/blog";
+// eslint-disable-next-line
+import { fluidImage } from "../components/queryFragments";
 import CoverImage from "../components/CoverImage";
 
 const Article = Styled.article`
