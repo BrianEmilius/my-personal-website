@@ -94,7 +94,7 @@ export default class BlogPost extends Component {
             {this.frontmatter.title}
           </h1>
           <p>
-            <span itemScope={true} itemType="https://schema.org/author">
+            <span itemProp="https://schema.org/author">
               {this.siteMetadata.author}
             </span>
             ,{" "}
