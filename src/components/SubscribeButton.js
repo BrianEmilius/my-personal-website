@@ -5,7 +5,8 @@ import Styled from "styled-components";
 const Subscribe = Styled.a`
   border: 1px solid grey;
   border-radius: 5px;
-  padding: 1em;
+  padding: .4em 1em;
+  font-size: .8em;
   background: linear-gradient(hsl(120, 50%, 50%), hsl(120, 50%, 30%));
   display: inline-block;
   margin-bottom: 1em;
