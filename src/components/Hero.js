@@ -8,7 +8,7 @@ const imageQuery = graphql`
     file(relativePath: { eq: "computer-screens-large.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
