@@ -91,7 +91,7 @@ export default class BlogPost extends Component {
         >
           <CoverImage
             frontmatter={this.frontmatter}
-            itemProp="https:schema.org/image"
+            itemProp="https://schema.org/image"
           />
           <h1 itemProp="https://schema.org/headline">
             {this.frontmatter.title}
