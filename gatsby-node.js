@@ -1,6 +1,5 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
-const Jimp = require("jimp");
 
 exports.onCreateNode = function({ node, actions, getNode }) {
   const { createNodeField } = actions;
@@ -16,7 +15,10 @@ exports.onCreateNode = function({ node, actions, getNode }) {
 
 exports.createPages = function({ actions, graphql }) {
   const { createPage, createRedirect } = actions;
-  const template = path.resolve("src/templates/blogPost.js");
+  const template = {
+    blogList: path.resolve("./src/templates/blogList.js"),
+    blogPost: path.resolve("./src/templates/blogPost.js")
+  };
 
   createRedirect({
     fromPath: "https://brianemilius.netlify.com/*",
@@ -37,9 +39,8 @@ exports.createPages = function({ actions, graphql }) {
       ) {
         edges {
           node {
-            frontmatter {
-              path
-              title
+            fields {
+              slug
             }
           }
         }
@@ -48,34 +49,29 @@ exports.createPages = function({ actions, graphql }) {
   `).then(function(result) {
     if (result.errors) return Promise.reject(result.errors);
 
-    /* async function createCardImage(node) {
-      try {
-        const base = await Jimp.read("./src/images/base-card-image.png");
-        const font = await Jimp.loadFont(Jimp.FONT_SANS_64_BLACK);
-        const filename = node.frontmatter.path.split("/blog/").pop();
-        base.print(
-          font,
-          32,
-          32,
-          {
-            text: node.frontmatter.title,
-            alignmentX: Jimp.HORIZONTAL_ALIGN_LEFT,
-            alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-          },
-          625,
-          358
-        );
-        base.write(`./src/images/${filename}.png`);
-      } catch (error) {
-        console.log(error);
-      }
-    } */
+    const posts = result.data.allMarkdownRemark.edges;
+    const postsPerPage = 5;
+    const numPages = Math.ceil(posts.length / postsPerPage);
 
-    return result.data.allMarkdownRemark.edges.forEach(function({ node }) {
-      //createCardImage(node);
+    // Create blog-list pages
+    Array.from({ length: numPages }).forEach(function(_, i) {
       createPage({
-        path: node.frontmatter.path,
-        component: template,
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: template.blogList,
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1
+        }
+      });
+    });
+
+    // Create blog post pages
+    posts.forEach(function({ node }) {
+      createPage({
+        path: node.fields.slug,
+        component: template.blogPost,
         context: {}
       });
     });
