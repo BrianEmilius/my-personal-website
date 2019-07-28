@@ -10,12 +10,17 @@ export default function Pagination({ path, pageContext }) {
         if (page === pageContext.currentPage) {
           let className = styles.pagination__link;
           className += " " + styles.pagination__link__active;
-          return <span className={className}>{page}</span>;
+          return (
+            <span className={className} key={i}>
+              {page}
+            </span>
+          );
         } else {
           return (
             <Link
               to={`/blog/${page > 1 ? page : ""}`}
               className={styles.pagination__link}
+              key={i}
             >
               {page}
             </Link>
