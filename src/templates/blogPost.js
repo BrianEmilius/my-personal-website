@@ -24,12 +24,13 @@ export default class BlogPost extends Component {
     super(props);
     this.state = {};
     const { markdownRemark } = props.data;
-    const { frontmatter, html, excerpt } = markdownRemark;
+    const { frontmatter, html, excerpt, fields } = markdownRemark;
     const { siteMetadata } = props.data.site;
     this.frontmatter = frontmatter;
     this.html = html;
     this.excerpt = excerpt;
     this.siteMetadata = siteMetadata;
+    this.fields = fields;
   }
 
   componentDidMount() {
@@ -38,7 +39,7 @@ export default class BlogPost extends Component {
 
   getComments() {
     const title = this.frontmatter.title;
-    const path = this.frontmatter.path;
+    const path = this.fields.slug;
     const url = this.siteMetadata.siteUrl;
     const gitalk = new Gitalk({
       clientID: "78d9230d901226dec1af",
@@ -72,18 +73,18 @@ export default class BlogPost extends Component {
         <Helmet>
           <link
             rel="canonical"
-            href={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
+            href={`${this.siteMetadata.siteUrl}${this.fields.slug}`}
           />
           <meta
             property="og:url"
-            content={`${this.siteMetadata.siteUrl}${this.frontmatter.path}`}
+            content={`${this.siteMetadata.siteUrl}${this.fields.slug}`}
           />
           <meta property="og:title" content={this.frontmatter.title} />
           <meta property="og:description" content={this.excerpt} />
           <meta property="og:type" content="website" />
           {this.getOGImage(this.siteMetadata, this.frontmatter)}
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:creator" content="@BrianEmilius" />
+          <meta name="twitter:author" content="@BrianEmilius" />
           <meta name="twitter:site" content={this.siteMetadata.siteUrl} />
           <meta name="twitter:title" content={this.frontmatter.title} />
           <meta name="twitter:description" content={this.excerpt} />
@@ -122,12 +123,14 @@ export default class BlogPost extends Component {
 
 export const logQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    markdownRemark(fields: { slug: { eq: $path } }) {
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "YYYY-MM-DD")
-        path
         title
         image {
           ...fluidImage

@@ -16,7 +16,7 @@ const Published = Styled.p`
   text-align: center;
 `;
 
-export default function Card({ excerpt, frontmatter }) {
+export default function Card({ excerpt, frontmatter, fields }) {
   return (
     <Article>
       <Published>
@@ -24,7 +24,7 @@ export default function Card({ excerpt, frontmatter }) {
       </Published>
       <CoverImage frontmatter={frontmatter} />
       <h1>
-        <Link to={frontmatter.path}>{frontmatter.title}</Link>
+        <Link to={fields.slug}>{frontmatter.title}</Link>
       </h1>
       {excerpt}
     </Article>
