@@ -82,6 +82,12 @@ export default function Credits() {
             CC 3.0 BY
           </a>
         </p>
+        <p>
+          Background image on frontpage Hero box created by{" "}
+          <a href="https://www.freepik.com/free-photos-vectors/background">
+            creativeart - www.freepik.com
+          </a>
+        </p>
       </Section>
     </Layout>
   );
