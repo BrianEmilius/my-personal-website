@@ -5,9 +5,9 @@ import BackgroundImage from "gatsby-background-image";
 
 const imageQuery = graphql`
   query {
-    file(relativePath: { eq: "computer-screens-large.jpg" }) {
+    file(relativePath: { eq: "code-on-desktop.jpg" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
+        fluid(quality: 90, maxWidth: 5616) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
@@ -31,7 +31,8 @@ const Component = function({ file }) {
   `;
 
   const Paragraph = Styled.p`
-    background: hsla(0, 0%, 85%, 0.4);
+    background: hsla(0, 0%, 3%, 0.75);
+    color: hsl(0, 0%, 87%);
     padding: 2em;
     margin: 0;
     width: 100%;
