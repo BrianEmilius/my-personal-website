@@ -17,7 +17,8 @@ exports.createPages = function({ actions, graphql }) {
   const { createPage, createRedirect } = actions;
   const template = {
     blogList: path.resolve("./src/templates/blogList.js"),
-    blogPost: path.resolve("./src/templates/blogPost.js")
+    blogPost: path.resolve("./src/templates/blogPost.js"),
+    tagList: path.resolve("./src/templates/tagList.js")
   };
 
   createRedirect({
@@ -39,6 +40,9 @@ exports.createPages = function({ actions, graphql }) {
       ) {
         edges {
           node {
+            frontmatter {
+              tags
+            }
             fields {
               slug
             }
@@ -52,6 +56,7 @@ exports.createPages = function({ actions, graphql }) {
     const posts = result.data.allMarkdownRemark.edges;
     const postsPerPage = 5;
     const numPages = Math.ceil(posts.length / postsPerPage);
+    let tags = [];
 
     // Create blog-list pages
     Array.from({ length: numPages }).forEach(function(_, i) {
@@ -73,6 +78,21 @@ exports.createPages = function({ actions, graphql }) {
         path: node.fields.slug,
         component: template.blogPost,
         context: {}
+      });
+    });
+
+    posts.forEach(function({ node }) {
+      if (node.frontmatter.tags) {
+        tags = tags.concat(node.frontmatter.tags);
+      }
+    });
+    new Set(tags).forEach(function(tag) {
+      createPage({
+        path: `/tags/${tag}`,
+        component: template.tagList,
+        context: {
+          tag
+        }
       });
     });
   });
