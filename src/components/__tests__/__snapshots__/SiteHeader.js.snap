@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteHeader renders correctly 1`] = `
+<header
+  className="sc-htpNat eFupIx"
+>
+  <a
+    href="/"
+  >
+    <img
+      alt=""
+      className="sc-bxivhb cmEYWm"
+      src="test-file-stub"
+    />
+  </a>
+  <nav>
+    <ul
+      className="sc-bdVaJa kfYGKV"
+    >
+      <li>
+        <a
+          className="sc-bwzfXH gNzaId"
+          href="/blog"
+        >
+          Blog
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
