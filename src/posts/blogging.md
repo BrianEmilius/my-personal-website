@@ -3,6 +3,7 @@ title: Blogging
 path: /blog/blogging
 date: 2019-07-27 10:33:00
 image: ../images/blogging.jpg
+tags: ["life"]
 ---
 I recently listened to [an episode about blogging](https://ladybug.dev/episode/blogging-101/) from The Ladybug Podcast. It is a new podcast series by Emma Wedekind, Ali Spittel, Kelly Vaughn, and Lindsey Kopacz.
 
