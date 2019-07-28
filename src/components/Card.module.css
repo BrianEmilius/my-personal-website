@@ -1,0 +1,20 @@
+.article {
+  margin-bottom: 3em;
+  padding-bottom: 1em;
+  border-bottom: 3px solid hsl(240, 30%, 20%);
+}
+
+.article__published {
+  font-size: .8em;
+  color: grey;
+  text-align: center;
+}
+
+.article__heading {
+	text-decoration: none;
+	color: inherit;
+}
+
+.article__heading:hover {
+	text-decoration: underline;
+}
