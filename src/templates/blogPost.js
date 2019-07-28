@@ -8,6 +8,7 @@ import Gitalk from "gitalk";
 // eslint-disable-next-line
 import { fluidImage } from "../components/queryFragments";
 import CoverImage from "../components/CoverImage";
+import Tags from "../components/Tags";
 
 const Article = Styled.article`
   border-left: 1px solid grey;
@@ -110,6 +111,7 @@ export default class BlogPost extends Component {
               {this.frontmatter.date}
             </time>
           </p>
+          <Tags frontmatter={this.frontmatter} />
           <div dangerouslySetInnerHTML={{ __html: this.html }} />
           <section>
             <h1>Comments</h1>
@@ -130,6 +132,7 @@ export const logQuery = graphql`
         slug
       }
       frontmatter {
+        tags
         date(formatString: "YYYY-MM-DD")
         title
         image {

@@ -50,6 +50,7 @@ export const tagListQuery = graphql`
             slug
           }
           frontmatter {
+            tags
             title
             date(formatString: "YYYY-MM-DD")
             image {

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Styled from "styled-components";
 
 import CoverImage from "./CoverImage";
+import Tags from "./Tags";
 
 const Article = Styled.article`
   margin-bottom: 3em;
@@ -27,6 +28,7 @@ export default function Card({ excerpt, frontmatter, fields }) {
         <Link to={fields.slug}>{frontmatter.title}</Link>
       </h1>
       {excerpt}
+      <Tags frontmatter={frontmatter} />
     </Article>
   );
 }

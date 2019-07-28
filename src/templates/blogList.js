@@ -53,6 +53,7 @@ export const blogListQuery = graphql`
       edges {
         node {
           frontmatter {
+            tags
             title
             date(formatString: "YYYY MMMM DD")
             image {
