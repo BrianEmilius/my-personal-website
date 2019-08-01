@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import Styled from "styled-components";
 
+// eslint-disable-next-line
+import { fluidImage } from "./queryFragments";
 import PrimaryNavigation from "./PrimaryNavigation";
 
 const Header = Styled.header`
@@ -47,11 +50,6 @@ margin-top: 2em;
 text-transform: uppercase;
 `;
 
-const Logo = Styled.img`
-width: 50%;
-height: auto;
-`;
-
 export default class SiteHeader extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +68,11 @@ export default class SiteHeader extends Component {
         query={graphql`
           query {
             logo: file(base: { eq: "icon.png" }) {
-              publicURL
+              childImageSharp {
+                fluid(maxWidth: 200, quality: 100) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
             }
           }
         `}
@@ -78,8 +80,11 @@ export default class SiteHeader extends Component {
           return (
             <Header id="siteHeader" className={this.state.menu}>
               <Brand to="/">
-                <Logo src={data.logo.publicURL} alt="Cartoon Brian" />
-                <br />
+                <Img
+                  style={{ width: "50%", margin: "auto" }}
+                  fluid={data.logo.childImageSharp.fluid}
+                  alt="Cartoon Brian"
+                />
                 Brian Emilius
               </Brand>
               <PrimaryNavigation />
