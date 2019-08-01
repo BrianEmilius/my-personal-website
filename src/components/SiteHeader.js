@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
+import { graphql, Link, StaticQuery } from "gatsby";
 import Styled from "styled-components";
 
 import PrimaryNavigation from "./PrimaryNavigation";
@@ -43,9 +43,13 @@ display: block;
 font-size: 200%;
 color: hsl(0, 0%, 6%);
 text-decoration: none;
-line-height: 200%;
 margin-top: 2em;
 text-transform: uppercase;
+`;
+
+const Logo = Styled.img`
+width: 50%;
+height: auto;
 `;
 
 export default class SiteHeader extends Component {
@@ -62,17 +66,34 @@ export default class SiteHeader extends Component {
 
   render() {
     return (
-      <Header className={this.state.menu}>
-        <Brand to="/">Brian Emilius</Brand>
-        <PrimaryNavigation />
-        <a
-          href="https://twitter.com/brianemilius?ref_src=twsrc%5Etfw"
-          className="twitter-follow-button"
-          data-show-count="true"
-        >
-          Follow @brianemilius
-        </a>
-      </Header>
+      <StaticQuery
+        query={graphql`
+          query {
+            logo: file(base: { eq: "icon.png" }) {
+              publicURL
+            }
+          }
+        `}
+        render={data => {
+          return (
+            <Header id="siteHeader" className={this.state.menu}>
+              <Brand to="/">
+                <Logo src={data.logo.publicURL} alt="Cartoon Brian" />
+                <br />
+                Brian Emilius
+              </Brand>
+              <PrimaryNavigation />
+              <a
+                href="https://twitter.com/brianemilius?ref_src=twsrc%5Etfw"
+                className="twitter-follow-button"
+                data-show-count="true"
+              >
+                Follow @brianemilius
+              </a>
+            </Header>
+          );
+        }}
+      />
     );
   }
 }
