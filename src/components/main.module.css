@@ -1,0 +1,11 @@
+.main {
+	grid-area: main;
+	padding-top: 3em;
+	box-sizing: border-box;
+}
+
+@media screen and (min-width: 64em) {
+	.main {
+		margin-top: 1em;
+	}
+}

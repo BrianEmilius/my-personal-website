@@ -1,0 +1,16 @@
+.primaryNavigation {
+	list-style: none;
+	padding: 0;
+  margin: 3em 0;
+}
+
+.primaryNavigation__link {
+  color: hsl(0, 0%, 6%);
+	text-decoration: none;
+	line-height: 200%;
+	text-transform: uppercase;
+}
+
+.primaryNavigation__link:hover {
+	text-decoration: underline;
+}

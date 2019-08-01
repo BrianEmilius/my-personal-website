@@ -2,22 +2,31 @@ import React, { Component } from "react";
 import { graphql } from "gatsby";
 import Styled from "styled-components";
 import Helmet from "react-helmet";
-import Layout from "../components/Layout";
+import moment from "moment";
 import Gitalk from "gitalk";
 
 // eslint-disable-next-line
 import { fluidImage } from "../components/queryFragments";
+import Layout from "../components/Layout";
+import Main from "../components/main";
 import CoverImage from "../components/CoverImage";
 import Tags from "../components/Tags";
 
 const Article = Styled.article`
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  background-color: hsl(0, 0%, 97%);
-  padding: 1em;
-  @media screen and (min-width: 30em) {
-    margin: 0 var(--pageMargin);
-  }
+padding: 1em;
+@media screen and (min-width: 40em) {
+  width: 70%;
+  max-width: 40em;
+  margin: 0 auto;
+}
+@media screen and (min-width: 64em) {
+  width: 100%;
+  max-width: 30em;
+}
+@media screen and (min-width: 70em) {
+  width: 100%;
+  max-width: 35em;
+}
 `;
 
 export default class BlogPost extends Component {
@@ -90,34 +99,46 @@ export default class BlogPost extends Component {
           <meta name="twitter:title" content={this.frontmatter.title} />
           <meta name="twitter:description" content={this.excerpt} />
         </Helmet>
-        <Article
-          itemProp="https://schema.org/mainEntityOfPage"
-          itemScope={true}
-          itemType="https://schema.org/BlogPosting"
-        >
-          <CoverImage frontmatter={this.frontmatter} />
-          <h1 itemProp="https://schema.org/headline">
-            {this.frontmatter.title}
-          </h1>
-          <p>
-            <span itemProp="https://schema.org/author">
-              {this.siteMetadata.author}
-            </span>
-            ,{" "}
-            <time
-              dateTime={this.frontmatter.date}
-              itemProp="https://schema.org/datePublished"
-            >
-              {this.frontmatter.date}
-            </time>
-          </p>
-          <Tags frontmatter={this.frontmatter} />
-          <div dangerouslySetInnerHTML={{ __html: this.html }} />
-          <section>
-            <h1>Comments</h1>
-            <div id="gitalk" />
-          </section>
-        </Article>
+        <Main>
+          <Article
+            itemProp="https://schema.org/mainEntityOfPage"
+            itemScope={true}
+            itemType="https://schema.org/BlogPosting"
+          >
+            <CoverImage frontmatter={this.frontmatter} />
+            <h1 itemProp="https://schema.org/headline">
+              {this.frontmatter.title}
+            </h1>
+            <p>
+              <span itemProp="https://schema.org/author">
+                {this.siteMetadata.author}
+              </span>
+              ,{" "}
+              <time
+                dateTime={this.frontmatter.date}
+                itemProp="https://schema.org/datePublished"
+              >
+                {moment(this.frontmatter.date).format("MMM Do YYYY")}
+              </time>{" "}
+              <a
+                href="https://twitter.com/share"
+                className="twitter-share-button"
+                data-text={this.frontmatter.title}
+                data-hashtags="devcommunity"
+                data-show-count="true"
+                data-via="BrianEmilius"
+              >
+                Tweet
+              </a>
+            </p>
+            <Tags frontmatter={this.frontmatter} />
+            <div dangerouslySetInnerHTML={{ __html: this.html }} />
+            <section>
+              <h1>Comments</h1>
+              <div id="gitalk" />
+            </section>
+          </Article>
+        </Main>
       </Layout>
     );
   }
@@ -133,7 +154,7 @@ export const logQuery = graphql`
       }
       frontmatter {
         tags
-        date(formatString: "YYYY-MM-DD")
+        date
         title
         image {
           ...fluidImage

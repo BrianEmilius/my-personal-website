@@ -1,29 +1,6 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
-import Styled from "styled-components";
-
-const Footer = Styled.footer`
-	background-color: hsl(0, 0%, 4%);
-	color: hsl(0, 0%, 97%);
-	padding: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  @media screen and (min-width: 64em) {
-    flex-direction: row;
-  }
-  a {
-    color: hsl(0, 0%, 97%);
-  }
-`;
-
-const Icon = Styled.img`
-  height: 2em;
-  width: 2em;
-  line-height: 2em;
-  display: inline-block;
-  fill: currentColor;
-`;
+import styles from "./site-footer.module.css";
 
 const query = graphql`
   query {
@@ -41,7 +18,7 @@ const query = graphql`
 
 function Component({ github, twitter, dev }) {
   return (
-    <Footer>
+    <footer className={styles.siteFooter}>
       <section>
         <h1>About this site</h1>
         <p>
@@ -61,20 +38,32 @@ function Component({ github, twitter, dev }) {
         <h1>Reach out!</h1>
         <p>
           <a href="//twitter.com/BrianEmilius/" title="Twitter">
-            <Icon src={twitter.publicURL} alt="Twitter icon" />
+            <img
+              className={styles.someIcon}
+              src={twitter.publicURL}
+              alt="Twitter icon"
+            />
             <span className="sr-only"> Twitter</span>
           </a>{" "}
           <a href="//github.com/BrianEmilius/" title="GitHub">
-            <Icon src={github.publicURL} alt="GitHub octocat icon" />
+            <img
+              className={styles.someIcon}
+              src={github.publicURL}
+              alt="GitHub octocat icon"
+            />
             <span className="sr-only"> GitHub</span>
           </a>{" "}
           <a href="https://dev.to/brianemilius" title="DEV Community">
-            <Icon src={dev.publicURL} alt="Brian Emilius's DEV Profile" />
+            <img
+              className={styles.someIcon}
+              src={dev.publicURL}
+              alt="Brian Emilius's DEV Profile"
+            />
             <span className="sr-only"> DEV Community</span>
           </a>
         </p>
       </section>
-    </Footer>
+    </footer>
   );
 }
 

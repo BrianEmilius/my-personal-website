@@ -5,17 +5,25 @@ import Styled from "styled-components";
 // eslint-disable-next-line
 import { fluidImage } from "../components/queryFragments";
 import Layout from "../components/Layout";
+import Main from "../components/main";
 import Card from "../components/Card";
 
 const Section = Styled.section`
-  background-color: hsl(0, 0%, 97%);
-  padding: 1em;
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  min-height: 95vh;
-  @media screen and (min-width: 30em) {
-    margin: 0 var(--pageMargin);
-  }
+min-height: 100vh;
+padding: 1em;
+@media screen and (min-width: 40em) {
+  width: 70%;
+  max-width: 40em;
+  margin: 0 auto;
+}
+@media screen and (min-width: 64em) {
+  width: 100%;
+  max-width: 30em;
+}
+@media screen and (min-width: 70em) {
+  width: 100%;
+  max-width: 35em;
+}
 `;
 
 export default class TagList extends Component {
@@ -25,12 +33,14 @@ export default class TagList extends Component {
     const tag = this.props.pageContext.tag;
     return (
       <Layout title={tag}>
-        <Section>
-          <h1>Tag: {tag}</h1>
-          {posts.map(({ node }, index) => (
-            <Card key={index} {...node} />
-          ))}
-        </Section>
+        <Main>
+          <Section>
+            <h1>Tag: {tag}</h1>
+            {posts.map(({ node }, index) => (
+              <Card key={index} {...node} />
+            ))}
+          </Section>
+        </Main>
       </Layout>
     );
   }

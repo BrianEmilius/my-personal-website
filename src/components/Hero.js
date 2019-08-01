@@ -17,7 +17,7 @@ const imageQuery = graphql`
 
 const Component = function({ file }) {
   const Hero = Styled(BackgroundImage)`
-    height: 95vh;
+    height: 100vh;
     background-color: hsl(240, 30%, 20%);
 		background-size: cover;
     background-attachment: fixed;
@@ -39,6 +39,9 @@ const Component = function({ file }) {
     font-size: 120%;
     @media screen and (min-width: 30em) {
       font-size: 180%;
+    }
+    strong {
+      white-space: nowrap;
     }
   `;
   return (

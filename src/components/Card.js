@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import moment from "moment";
 
 import CoverImage from "./CoverImage";
 import Tags from "./Tags";
@@ -9,7 +10,9 @@ export default function Card({ excerpt, frontmatter, fields }) {
   return (
     <article className={styles.article}>
       <p className={styles.article__published}>
-        <time dateTime={frontmatter.date}>{frontmatter.date}</time>
+        <time dateTime={frontmatter.date}>
+          {moment(frontmatter.date).format("MMM Do YYYY")}
+        </time>
       </p>
       <CoverImage frontmatter={frontmatter} />
       <h1>

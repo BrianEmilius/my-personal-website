@@ -1,0 +1,5 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" alt="menu icon">
+  <rect  id="menu-icon-top-line" x="0" y="4" rx="2" ry="2" width="16" height="1" style="fill:currentColor;stroke:currentColor;" />
+	<rect id="menu-icon-middle-line" x="0" y="9" rx="2" ry="2" width="16" height="1" style="fill:currentColor;stroke:currentColor;" />
+	<rect id="menu-icon-bottom-line" x="0" y="14" rx="2" ry="2" width="16" height="1" style="fill:currentColor;stroke:currentColor;" />
+</svg>

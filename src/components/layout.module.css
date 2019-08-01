@@ -1,0 +1,21 @@
+.layoutContainer {
+	display: grid;
+	grid-template-rows: minmax(100vh, auto) minmax(10em, auto);
+	grid-template-columns: 100% 0;
+	grid-template-areas:
+		"main ."
+		"footer .";
+	transition: grid-template-columns 400ms ease;
+}
+
+@media screen and (min-width: 64em) {
+	.layoutContainer {
+		grid-template-columns: 70% 30%;
+	}
+}
+
+@media screen and (min-width: 100em) {
+	.layoutContainer {
+		grid-template-columns: 80% 20%;
+	}
+}

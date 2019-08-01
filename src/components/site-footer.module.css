@@ -1,0 +1,27 @@
+.siteFooter {
+	grid-area: footer;
+	background-color: hsl(0, 0%, 4%);
+	color: hsl(0, 0%, 97%);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 64em) {
+	.siteFooter {
+		flex-direction: row;
+	}
+}
+
+.siteFooter a {
+	color: hsl(0, 0%, 97%);
+}
+
+.someIcon {
+	height: 2em;
+  width: 2em;
+  line-height: 2em;
+  display: inline-block;
+  fill: currentColor;
+}

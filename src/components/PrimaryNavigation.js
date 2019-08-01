@@ -1,29 +1,32 @@
 import React from "react";
 import { Link } from "gatsby";
-import Styled from "styled-components";
-
-const Ul = Styled.ul`
-	list-style: none;
-	padding: 0;
-  margin: 0;
-  line-height: 5vh;
-  display: flex;
-`;
-
-const Anchor = Styled(Link)`
-  color: hsl(0, 0%, 96%);
-  text-decoration: none;
-  margin-left: 1em;
-`;
+import styles from "./PrimaryNavigation.module.css";
 
 export default function PrimaryNavigation() {
   return (
     <nav>
-      <Ul>
-        <li>
-          <Anchor to="/blog">Blog</Anchor>
+      <ul className={styles.primaryNavigation}>
+        {/* <li>
+          <Link to="/about" className={styles.primaryNavigation__link}>
+            About
+          </Link>
         </li>
-      </Ul>
+        <li>
+          <Link to="/work" className={styles.primaryNavigation__link}>
+            Work
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className={styles.primaryNavigation__link}>
+            Contact
+          </Link>
+        </li> */}
+        <li>
+          <Link to="/blog" className={styles.primaryNavigation__link}>
+            Blog
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }

@@ -5,19 +5,26 @@ import Styled from "styled-components";
 // eslint-disable-next-line
 import { fluidImage } from "../components/queryFragments";
 import Layout from "../components/Layout";
+import Main from "../components/main";
 import SubscribeButton from "../components/SubscribeButton";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 
 const Section = Styled.section`
-  background-color: hsl(0, 0%, 97%);
-  padding: 1em;
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  min-height: 95vh;
-  @media screen and (min-width: 30em) {
-    margin: 0 var(--pageMargin);
-  }
+padding: 1em;
+@media screen and (min-width: 40em) {
+  width: 70%;
+  max-width: 40em;
+  margin: 0 auto;
+}
+@media screen and (min-width: 64em) {
+  width: 100%;
+  max-width: 30em;
+}
+@media screen and (min-width: 70em) {
+  width: 100%;
+  max-width: 35em;
+}
 `;
 
 export default class BlogList extends React.Component {
@@ -25,19 +32,21 @@ export default class BlogList extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout title="Blog">
-        <Section>
-          <h1>Blog</h1>
-          <p>
-            <SubscribeButton />
-          </p>
-          {posts.map(({ node }, index) => (
-            <Card key={index} {...node} />
-          ))}
-          <Pagination
-            path={this.props.path}
-            pageContext={this.props.pageContext}
-          />
-        </Section>
+        <Main>
+          <Section>
+            <h1>Blog</h1>
+            <p>
+              <SubscribeButton />
+            </p>
+            {posts.map(({ node }, index) => (
+              <Card key={index} {...node} />
+            ))}
+            <Pagination
+              path={this.props.path}
+              pageContext={this.props.pageContext}
+            />
+          </Section>
+        </Main>
       </Layout>
     );
   }
@@ -55,7 +64,7 @@ export const blogListQuery = graphql`
           frontmatter {
             tags
             title
-            date(formatString: "YYYY MMMM DD")
+            date
             image {
               ...fluidImage
             }
