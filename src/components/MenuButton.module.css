@@ -9,6 +9,7 @@
 	font-size: inherit;
 	text-transform: uppercase;
 	padding: 0;
+	color: hsl(0, 0%, 6%);
 }
 
 @media screen and (min-width: 64em) {

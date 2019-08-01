@@ -25,6 +25,7 @@ export default class MenuButton extends Component {
         `}
         render={data => (
           <button
+            aria-controls="siteHeader"
             onClick={this.props.toggle}
             className={styles.menuToggle}
             style={style}
