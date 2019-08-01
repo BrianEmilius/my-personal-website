@@ -22,7 +22,6 @@ const Component = function({ file }) {
 		background-size: cover;
     background-attachment: fixed;
     display: flex;
-    padding: 0 var(--pageMargin);
     align-items: center;
     justify-content: center;
 		@media screen and (max-width: 30em) {
