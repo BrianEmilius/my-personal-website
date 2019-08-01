@@ -18,3 +18,7 @@
 .article__heading:hover {
 	text-decoration: underline;
 }
+
+.excerpt {
+  font-family: "EB Garamond";
+}

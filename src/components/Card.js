@@ -20,7 +20,7 @@ export default function Card({ excerpt, frontmatter, fields }) {
           {frontmatter.title}
         </Link>
       </h1>
-      {excerpt}
+      <p className={styles.excerpt}>{excerpt}</p>
       <Tags frontmatter={frontmatter} />
     </article>
   );
