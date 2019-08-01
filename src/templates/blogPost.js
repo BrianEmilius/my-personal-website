@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 import Main from "../components/main";
 import CoverImage from "../components/CoverImage";
 import Tags from "../components/Tags";
+import styles from "./blog-post.module.css";
 
 const Article = Styled.article`
 padding: 1em;
@@ -109,7 +110,7 @@ export default class BlogPost extends Component {
             <h1 itemProp="https://schema.org/headline">
               {this.frontmatter.title}
             </h1>
-            <p>
+            <p className={styles.copy}>
               <span itemProp="https://schema.org/author">
                 {this.siteMetadata.author}
               </span>
@@ -132,7 +133,10 @@ export default class BlogPost extends Component {
               </a>
             </p>
             <Tags frontmatter={this.frontmatter} />
-            <div dangerouslySetInnerHTML={{ __html: this.html }} />
+            <div
+              className={styles.copy}
+              dangerouslySetInnerHTML={{ __html: this.html }}
+            />
             <section>
               <h1>Comments</h1>
               <div id="gitalk" />
