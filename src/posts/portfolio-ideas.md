@@ -1,7 +1,7 @@
 ---
 title: What to put in your portfolio as a beginner web dev
 date: 2019-08-06 15:15:00
-categories: ["beginner", "career"]
+tags: ["beginner", "career"]
 image: ../images/portfolio-ideas.jpg
 ---
 Last week I wrote up a list of advice for beginner web developers. One of the bullets on the list was to build a portfolio.
