@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryNavigation renders correctly 1`] = `
+<nav>
+  <ul
+    className="primaryNavigation"
+  >
+    <li>
+      <a
+        className="primaryNavigation__link"
+        href="/blog"
+      >
+        Blog
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

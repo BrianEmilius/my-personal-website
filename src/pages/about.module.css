@@ -1,0 +1,22 @@
+.skillSection {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+	grid-row-gap: 1em;
+}
+
+@media screen and (min-width: 64em) {
+	.skillSection {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.skillHeading {
+	margin: 0;
+}
+
+.skillList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

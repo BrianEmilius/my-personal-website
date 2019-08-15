@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import styles from "./site-footer.module.css";
 
 const query = graphql`
@@ -22,7 +23,9 @@ function Component({ github, twitter, dev }) {
       <section>
         <h1>About this site</h1>
         <p>
-          <Link to="/credits">List of credits</Link>
+          <AniLink fade to="/credits">
+            List of credits
+          </AniLink>
         </p>
         <p>
           Made with <a href="//www.gatsbyjs.org/">Gatsby</a>

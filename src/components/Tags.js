@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import styles from "./Tags.module.css";
 
@@ -9,13 +9,14 @@ export default function Tags({ frontmatter }) {
       <div className={styles.tagContainer}>
         {frontmatter.tags.map(function(tag, index) {
           return (
-            <Link
+            <AniLink
+              fade
               to={`/tags/${tag}`}
               key={index}
               className={styles.tagContainer__tag}
             >
               {tag}
-            </Link>
+            </AniLink>
           );
         })}
       </div>

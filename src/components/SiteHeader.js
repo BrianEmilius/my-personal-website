@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { graphql, Link, StaticQuery } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Img from "gatsby-image";
 import Styled from "styled-components";
 
@@ -41,7 +42,7 @@ transition: right 400ms ease;
 }
 `;
 
-const Brand = Styled(Link)`
+const Brand = Styled(AniLink)`
 display: block;
 font-size: 200%;
 color: hsl(0, 0%, 6%);
@@ -79,7 +80,7 @@ export default class SiteHeader extends Component {
         render={data => {
           return (
             <Header id="siteHeader" className={this.state.menu}>
-              <Brand to="/">
+              <Brand fade to="/">
                 <Img
                   style={{ width: "50%", margin: "auto" }}
                   fluid={data.logo.childImageSharp.fluid}

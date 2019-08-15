@@ -10,6 +10,11 @@ beforeEach(() => {
     render({
       home: {
         publicURL: FileMock
+      },
+      logo: {
+        childImageSharp: {
+          fluid: FileMock
+        }
       }
     })
   );

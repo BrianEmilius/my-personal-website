@@ -1,0 +1,23 @@
+.pageSection {
+	min-height: 100vh;
+	padding: 1em;
+}
+@media screen and (min-width: 40em) {
+	.pageSection {
+		width: 70%;
+		max-width: 40em;
+		margin: 0 auto;
+	}
+}
+@media screen and (min-width: 64em) {
+	.pageSection {
+		width: 100%;
+		max-width: 30em;
+	}
+}
+@media screen and (min-width: 70em) {
+	.pageSection {
+		width: 100%;
+		max-width: 35em;
+	}
+}
