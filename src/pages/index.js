@@ -8,7 +8,7 @@ export default class Index extends Component {
   render() {
     return (
       <Layout title="Home">
-        <div style={{ "grid-area": "main" }}>
+        <div style={{ gridArea: "main" }}>
           <Hero />
           <LatestPosts />
         </div>
