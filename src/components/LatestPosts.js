@@ -39,8 +39,8 @@ export default function LatestPosts() {
       render={data => (
         <section className={styles.latestPosts}>
           <h1 className={styles.latestPosts__heading}>Latest Blogposts</h1>
-          {data.allMarkdownRemark.edges.map(post => (
-            <Card {...post.node} />
+          {data.allMarkdownRemark.edges.map((post, i) => (
+            <Card {...post.node} key={i} />
           ))}
         </section>
       )}
