@@ -3,7 +3,6 @@ title: Bedre dokumentation
 path: /blog/bedre-dokumentation
 author: Brian Emilius
 twitter: brianemilius
-image: ../images/bedre-dokumentation.png
 tags: ["JavaScript","dokumentation"]
 date: 2017-12-27 11:32:06
 ---
