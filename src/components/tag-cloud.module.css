@@ -1,0 +1,16 @@
+.tagContainer {
+	display: flex;
+	flex-wrap: wrap;
+	word-break: keep-all;
+	margin-top: 1em;
+	padding: 0 1em;
+}
+
+.tag {
+	background-color: lightblue;
+	padding: .2em .4em;
+	border-radius: 5px;
+	margin-right: 1em;
+	font-size: .5em;
+	color: black;
+}
