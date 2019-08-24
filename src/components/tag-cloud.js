@@ -28,7 +28,6 @@ export default function TagCloud() {
         return (
           <div className={styles.tagContainer}>
             {Array.from(new Set(tags.flat())).map((tag, index) => {
-              console.log(tag);
               return (
                 <AniLink
                   fade
