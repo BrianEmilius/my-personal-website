@@ -1,7 +1,7 @@
 ---
 title: My Advice To Beginner Web Devs
 date: 2019-08-03 11:40:00
-tags: ["advice", "web dev", "life"]
+tags: ["beginners", "webdev", "life"]
 image: ../images/motivation.jpg
 ---
 I have been messing around on the World Wide Web since it was a thing. Today I teach Web Developer classes at college. Here is my advice for beginning web developers.

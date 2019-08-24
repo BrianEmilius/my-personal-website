@@ -5,7 +5,6 @@ author: Brian Emilius
 twitter: brianemilius
 date: 2018-04-10 10:49:03
 tags: ["CSS","algebra"]
-categories: ["Design"]
 ---
 There are easy ways to use CSS to make a font-size adapt to the size of the screen it is rendered on.
 

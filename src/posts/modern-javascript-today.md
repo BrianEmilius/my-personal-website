@@ -5,7 +5,7 @@ date: 2018-08-10 09:12:15
 author: Brian Emilius
 twitter: brianemilius
 image: ../images/modern-javascript-today.jpg
-tags: ["babel.js","node.js","es6 modules"]
+tags: ["babel.js","node.js","es6-modules"]
 categories: ["Guides"]
 ---
 JavaScript is a language that evolves at a break-neck pace. Within a few years we have gotten custom elements and ES6 modules.

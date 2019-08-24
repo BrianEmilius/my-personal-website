@@ -3,9 +3,8 @@ title: Bedre dokumentation
 path: /blog/bedre-dokumentation
 author: Brian Emilius
 twitter: brianemilius
-featured_image: ../images/bedre-dokumentation.png
+image: ../images/bedre-dokumentation.png
 tags: ["JavaScript","dokumentation"]
-categories: ["Renere kode"]
 date: 2017-12-27 11:32:06
 ---
 Vi har alle set de her overkommenterede stykker kode, hvor nærmest hver eneste linie ender i en kommentar, der forklarer hvad den linie gør.

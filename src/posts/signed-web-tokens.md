@@ -4,7 +4,7 @@ path: /blog/signed-web-tokens
 author: Brian Emilius
 twitter: brianemilius
 featured_image: ../images/signed-web-tokens.png
-tags: ["hmac","sha","hash","JSON"]
+tags: ["hmac","sha","hash","JSON", "JavaScript"]
 categories: ["Kryptografi"]
 date: 2018-01-07 14:57:46
 ---

@@ -5,7 +5,6 @@ author: Brian Emilius
 twitter: brianemilius
 date: 2018-05-01 22:01:16
 tags: ["UX","a11y","best-practice","html"]
-categories: ["Accessability"]
 ---
 A lot can be said about links that open in a new window or tab. Whether it is a good idea to do so or "best-practice" is not the scope of this article. What I would really like to discuss is what we can do in those cases where opening a link in a new window or tab, for whatever reason, is necessary.
 

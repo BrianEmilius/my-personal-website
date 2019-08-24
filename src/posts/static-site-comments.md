@@ -5,6 +5,7 @@ date: 2019-07-23 11:00:00
 image: "../images/static-site-comments.jpg"
 author: "Brian Emilius"
 twitter: "brianemilius"
+tags: ["SSG", "webdev", "JavaScript"]
 ---
 In this article, I will show you how to implement a comment section on a static website with no backend. But first, let me explain what a static site is, and what a backend is.
 
