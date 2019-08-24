@@ -15,7 +15,7 @@ export default function Tags({ frontmatter }) {
               key={index}
               className={styles.tagContainer__tag}
             >
-              {tag}
+              #{tag}
             </AniLink>
           );
         })}
