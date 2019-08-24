@@ -7,6 +7,7 @@ import Styled from "styled-components";
 // eslint-disable-next-line
 import { fluidImage } from "./queryFragments";
 import PrimaryNavigation from "./PrimaryNavigation";
+import TagCloud from "./tag-cloud";
 
 const Header = Styled.header`
 position: fixed;
@@ -96,6 +97,7 @@ export default class SiteHeader extends Component {
               >
                 Follow @brianemilius
               </a>
+              <TagCloud />
             </Header>
           );
         }}
