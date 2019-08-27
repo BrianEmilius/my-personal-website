@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagCloud renders correctly 1`] = `
+<div
+  className="tagContainer"
+>
+  <a
+    className="tag"
+    href="/tags/ost"
+    onClick={[Function]}
+  >
+    #
+    ost
+  </a>
+  <a
+    className="tag"
+    href="/tags/feta"
+    onClick={[Function]}
+  >
+    #
+    feta
+  </a>
+  <a
+    className="tag"
+    href="/tags/gouda"
+    onClick={[Function]}
+  >
+    #
+    gouda
+  </a>
+</div>
+`;
