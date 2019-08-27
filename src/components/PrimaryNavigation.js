@@ -16,12 +16,12 @@ export default function PrimaryNavigation() {
             Contact
           </Link>
         </li> */}
-        <li>
+        <li key="/about">
           <AniLink fade to="/about" className={styles.primaryNavigation__link}>
             About
           </AniLink>
         </li>
-        <li>
+        <li key="/blog">
           <AniLink fade to="/blog" className={styles.primaryNavigation__link}>
             Blog
           </AniLink>
