@@ -8,7 +8,17 @@ exports[`PrimaryNavigation renders correctly 1`] = `
     <li>
       <a
         className="primaryNavigation__link"
+        href="/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+    <li>
+      <a
+        className="primaryNavigation__link"
         href="/blog"
+        onClick={[Function]}
       >
         Blog
       </a>
