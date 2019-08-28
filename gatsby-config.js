@@ -1,9 +1,20 @@
+const proxy = require("http-proxy-middleware");
+
 module.exports = {
   siteMetadata: {
     title: "Brian Emilius' Personal Site",
     siteUrl: "https://www.brianemilius.com",
     description: "A personal website about Brian Emilius.",
     author: "Brian Emilius"
+  },
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:9000",
+        pathRewrite: { "/.netlify/functions/": "" }
+      })
+    );
   },
   plugins: [
     {
