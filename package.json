@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "gatsby develop",
+    "lambda": "netlify-lambda serve src/lambdas",
     "serve": "npm run dev"
   },
   "repository": {
@@ -26,6 +27,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.4",
     "babel-preset-gatsby": "^0.2.1",
+    "faunadb": "^2.7.0",
     "gatsby": "^2.11.3",
     "gatsby-background-image": "^0.8.2",
     "gatsby-image": "^2.2.7",
@@ -43,7 +45,9 @@
     "gatsby-transformer-sharp": "^2.2.4",
     "gitalk": "^1.5.0",
     "gsap": "^2.1.3",
+    "http-proxy-middleware": "^0.19.1",
     "moment": "^2.24.0",
+    "netlify-lambda": "^1.6.3",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
