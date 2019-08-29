@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { graphql, StaticQuery } from "gatsby";
 
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
@@ -30,6 +29,37 @@ export default class Layout extends Component {
       if (event.key === "Escape" && this.state.menu === "show") this.toggle();
       if (event.key.toLowerCase() === "m") this.toggle();
     });
+
+    let log = JSON.parse(window.sessionStorage.getItem("log"));
+
+    if (!log) {
+      window.sessionStorage.setItem(
+        "log",
+        JSON.stringify({
+          startedAt: Date.now(),
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          agent: navigator.userAgent,
+          language: navigator.language,
+          ref: document.referrer,
+          latency:
+            window.performance.timing.responseEnd -
+            window.performance.timing.fetchStart,
+          pageLoad:
+            window.performance.timing.loadEventEnd -
+            window.performance.timing.responseEnd,
+          events: []
+        })
+      );
+    }
+
+    log = JSON.parse(window.sessionStorage.getItem("log"));
+
+    log.events.push({
+      timestamp: Date.now(),
+      label: "PAGE",
+      event: window.location.pathname
+    });
+    window.sessionStorage.setItem("log", JSON.stringify(log));
   }
 
   toggle() {
@@ -39,43 +69,24 @@ export default class Layout extends Component {
 
   render() {
     const { children, title } = this.props;
-
     return (
-      <StaticQuery
-        query={graphql`
-          query {
-            timeme: file(base: { eq: "timeme.min.js" }) {
-              publicURL
-            }
-            analytics: file(base: { eq: "analytics.js" }) {
-              publicURL
-            }
-          }
-        `}
-        render={data => {
-          return (
-            <div
-              itemScope={true}
-              itemType="https://schema.org/WebPage"
-              className={styles.layoutContainer}
-            >
-              <SEO title={title} lang="en" />
-              <MenuButton menu={this.state.menu} toggle={this.toggle} />
-              <SiteHeader menu={this.state.menu} />
-              {children}
-              <SiteFooter />
-              <script data-external-script src={data.timeme.publicURL} />
-              <script data-external-script src={data.analytics.publicURL} />
-              <script
-                data-external-script
-                async
-                src="https://platform.twitter.com/widgets.js"
-                charSet="utf-8"
-              />
-            </div>
-          );
-        }}
-      />
+      <div
+        itemScope={true}
+        itemType="https://schema.org/WebPage"
+        className={styles.layoutContainer}
+      >
+        <SEO title={title} lang="en" />
+        <MenuButton menu={this.state.menu} toggle={this.toggle} />
+        <SiteHeader menu={this.state.menu} />
+        {children}
+        <SiteFooter />
+        <script
+          data-external-script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charSet="utf-8"
+        />
+      </div>
     );
   }
 }
