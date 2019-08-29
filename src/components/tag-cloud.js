@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link, StaticQuery } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import styles from "./tag-cloud.module.css";
 
