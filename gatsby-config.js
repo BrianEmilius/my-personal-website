@@ -26,13 +26,13 @@ module.exports = {
         path: `${__dirname}/src/posts`
       }
     },
-    {
+    /* {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "scripts",
         path: `${__dirname}/src/scripts`
       }
-    },
+    }, */
     {
       resolve: "gatsby-source-filesystem",
       options: {
