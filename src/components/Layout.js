@@ -88,10 +88,10 @@ export default class Layout extends Component {
         if (beacon) return;
       }
 
-      const request = new XMLHttpRequest();
+      /* const request = new XMLHttpRequest();
       request.open("POST", "/.netlify/functions/analytics", false);
       request.setRequestHeader("content-type", "application/json");
-      request.send(log);
+      request.send(log); */
     }
   }
 
