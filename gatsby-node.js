@@ -31,6 +31,11 @@ exports.createPages = function({ actions, graphql }) {
     toPath: "https://www.brianemilius.com/:splat",
     isPermanent: true
   });
+  createRedirect({
+    fromPath: "*",
+    toPath: "/404",
+    statusCode: 404
+  });
 
   return graphql(`
     query {
