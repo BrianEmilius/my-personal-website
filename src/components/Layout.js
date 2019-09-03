@@ -60,6 +60,31 @@ export default class Layout extends Component {
       event: window.location.pathname
     });
     window.sessionStorage.setItem("log", JSON.stringify(log));
+
+    window.addEventListener("pagehide", endSession);
+    window.addEventListener("beforeunload", endSession);
+    window.addEventListener("unload", endSession);
+
+    let skip;
+
+    function endSession() {
+      console.log("stuff");
+      if (skip) return;
+      skip = true;
+
+      const data = window.sessionStorage.getItem("log");
+      data.events.push({
+        timestamp: Date.now(),
+        label: "EXIT",
+        event: "end session"
+      });
+
+      const beacon = navigator.sendBeacon(
+        "/.netlify/functions/analytics",
+        data
+      );
+      if (beacon) return;
+    }
   }
 
   toggle() {
