@@ -72,6 +72,8 @@ export default class Layout extends Component {
       if (skip) return;
       skip = true;
 
+      const { vendor } = window.navigator;
+
       const data = window.sessionStorage.getItem("log");
       data.events.push({
         timestamp: Date.now(),
@@ -79,11 +81,18 @@ export default class Layout extends Component {
         event: "end session"
       });
 
-      const beacon = navigator.sendBeacon(
-        "/.netlify/functions/analytics",
-        data
-      );
-      if (beacon) return;
+      if (window.navigator.sendBeacon && !~vendor.indexOf("Apple")) {
+        const beacon = window.navigator.sendBeacon(
+          "/.netlify/functions/analytics",
+          data
+        );
+        if (beacon) return;
+      }
+
+      const request = new XMLHttpRequest();
+      request.open("POST", "/.netlify/functions/analytics", true);
+      request.setRequestHeader("content-type", "application/json");
+      request.send(data);
     }
   }
 
