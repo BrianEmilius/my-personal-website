@@ -61,38 +61,37 @@ export default class Layout extends Component {
     });
     window.sessionStorage.setItem("log", JSON.stringify(log));
 
-    window.addEventListener("pagehide", endSession);
+    window.addEventListener("beforeunload", endSession);
     window.addEventListener("beforeunload", endSession);
     window.addEventListener("unload", endSession);
 
     let skip;
 
     function endSession() {
-      console.log("stuff");
       if (skip) return;
       skip = true;
 
       const { vendor } = window.navigator;
+      const log = window.sessionStorage.getItem("log");
 
-      const data = window.sessionStorage.getItem("log");
-      data.events.push({
+      /* log.events.push({
         timestamp: Date.now(),
         label: "EXIT",
         event: "end session"
-      });
+      }); */
 
       if (window.navigator.sendBeacon && !~vendor.indexOf("Apple")) {
         const beacon = window.navigator.sendBeacon(
           "/.netlify/functions/analytics",
-          data
+          log
         );
         if (beacon) return;
       }
 
       const request = new XMLHttpRequest();
-      request.open("POST", "/.netlify/functions/analytics", true);
+      request.open("POST", "/.netlify/functions/analytics", false);
       request.setRequestHeader("content-type", "application/json");
-      request.send(data);
+      request.send(log);
     }
   }
 
