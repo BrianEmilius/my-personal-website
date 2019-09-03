@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest",
     "dev": "netlify dev",
-    "netlify-lambda": "netlify-lambda serve src/lambdas",
     "gatsby": "gatsby develop"
   },
   "repository": {
