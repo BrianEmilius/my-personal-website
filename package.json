@@ -50,7 +50,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-share": "^3.0.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "uid": "0.0.2"
   },
   "devDependencies": {
     "@testing-library/react": "^8.0.4",
