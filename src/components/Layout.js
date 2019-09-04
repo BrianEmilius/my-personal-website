@@ -61,7 +61,7 @@ export default class Layout extends Component {
     });
     window.sessionStorage.setItem("log", JSON.stringify(log));
 
-    window.addEventListener("beforeunload", endSession);
+    window.addEventListener("pagehide", endSession);
     window.addEventListener("beforeunload", endSession);
     window.addEventListener("unload", endSession);
 
@@ -69,29 +69,31 @@ export default class Layout extends Component {
 
     function endSession() {
       if (skip) return;
+      if (!window.sessionStorage.getItem("log")) return;
       skip = true;
 
       const { vendor } = window.navigator;
       const log = window.sessionStorage.getItem("log");
+      window.sessionStorage.clear();
 
-      /* log.events.push({
+      const lastEvent = {
         timestamp: Date.now(),
         label: "EXIT",
         event: "end session"
-      }); */
+      };
 
       if (window.navigator.sendBeacon && !~vendor.indexOf("Apple")) {
         const beacon = window.navigator.sendBeacon(
           "/.netlify/functions/analytics",
-          log
+          JSON.stringify({ log, lastEvent })
         );
         if (beacon) return;
       }
 
-      /* const request = new XMLHttpRequest();
+      const request = new XMLHttpRequest();
       request.open("POST", "/.netlify/functions/analytics", false);
       request.setRequestHeader("content-type", "application/json");
-      request.send(log); */
+      request.send(JSON.stringify({ log, lastEvent }));
     }
   }
 
