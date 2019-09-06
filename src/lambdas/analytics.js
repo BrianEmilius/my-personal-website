@@ -1,6 +1,6 @@
-const digestSession = require("../scripts/digestSession");
-const digestEvents = require("../scripts/digestEvents");
-const saveData = require("../scripts/saveData");
+const digestSession = require("./helpers/digestSession");
+const digestEvents = require("./helpers/digestEvents");
+const saveData = require("./helpers/saveData");
 
 exports.handler = function(event, context, callback) {
   if (event.httpMethod !== "POST" || !event.body) {
