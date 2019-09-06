@@ -1,8 +1,6 @@
-require("dotenv").config();
-const faunadb = require("faunadb");
-const q = faunadb.query;
-const client = new faunadb.Client({ secret: process.env.FAUNADB_SECRET });
-const uid = require("uid");
+const digestSession = require("../scripts/digestSession");
+const digestEvents = require("../scripts/digestEvents");
+const saveData = require("../scripts/saveData");
 
 exports.handler = function(event, context, callback) {
   if (event.httpMethod !== "POST" || !event.body) {
@@ -17,52 +15,30 @@ exports.handler = function(event, context, callback) {
 
   const payload = JSON.parse(event.body);
   const log = JSON.parse(payload.log);
-  const session = {};
 
-  session.createdAt = new Date().toString();
-  session.sessionId = log.startedAt + uid(4);
-  session.startedAt = log.startedAt;
-  session.timezone = log.timezone;
-  session.agent = log.agent;
-  session.language = log.language;
-  session.ref = log.ref;
-  session.latency = log.latency;
-  session.pageLoad = log.pageLoad;
+  try {
+    saveData(digestSession(log), "Session").then(function(session) {
+      console.log("Session created:", session);
 
-  const events = log.events;
-  events.push(payload.lastEvent);
+      const events = digestEvents(
+        log.events,
+        payload.lastEvent,
+        session.data.sessionId
+      );
+      return events.forEach(function(event) {
+        saveData(event, "Event").then(function(result, i) {
+          console.log("Event created:", result);
 
-  client
-    .query(
-      q.Create(q.Collection("Session"), {
-        data: session
-      })
-    )
-    .then(response => console.log("Session created:", response));
-
-  events.forEach((event, index) => {
-    let length = 0;
-    if (events[index + 1]) {
-      length = events[index + 1].timestamp - event.timestamp;
-    }
-
-    client
-      .query(
-        q.Create(q.Collection("Event"), {
-          data: {
-            sessionId: session.sessionId,
-            timestamp: event.timestamp,
-            label: event.label,
-            event: event.event,
-            length
+          if (events.length - 1 === i) {
+            return callback(null, {
+              statusCode: 202,
+              body: ""
+            });
           }
-        })
-      )
-      .then(response => console.log("Event created:", response));
-  });
-
-  callback(null, {
-    statusCode: 202,
-    body: ""
-  });
+        });
+      });
+    });
+  } catch (error) {
+    return callback(error);
+  }
 };
