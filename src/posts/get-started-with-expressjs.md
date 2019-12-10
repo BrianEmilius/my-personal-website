@@ -1,6 +1,6 @@
 ---
 title: Get Started With ExpressJS
-date: 2019-09-02 14:00
+date: 2019-12-10 9:00
 tags: ["webdev", "beginners", "server-side", "express"]
 image: ../images/get-started-with-expressjs.jpg
 ---
