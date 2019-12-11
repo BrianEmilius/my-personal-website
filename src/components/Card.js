@@ -16,7 +16,7 @@ export default function Card({ excerpt, frontmatter, fields }) {
       </p>
       <CoverImage frontmatter={frontmatter} />
       <h1>
-        <AniLink fade to={fields.slug} className={styles.article__heading}>
+        <AniLink to={fields.slug} className={styles.article__heading}>
           {frontmatter.title}
         </AniLink>
       </h1>

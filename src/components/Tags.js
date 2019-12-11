@@ -10,7 +10,6 @@ export default function Tags({ frontmatter }) {
         {frontmatter.tags.map(function(tag, index) {
           return (
             <AniLink
-              fade
               to={`/tags/${tag}`}
               key={index}
               className={styles.tagContainer__tag}

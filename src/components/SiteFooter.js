@@ -23,7 +23,7 @@ function Component({ github, twitter, dev }) {
       <section>
         <h1>About this site</h1>
         <p>
-          <AniLink fade to="/credits">
+          <AniLink to="/credits">
             List of credits
           </AniLink>
         </p>

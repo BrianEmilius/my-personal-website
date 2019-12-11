@@ -18,7 +18,6 @@ export default function Pagination({ path, pageContext }) {
         } else {
           return (
             <AniLink
-              fade
               to={`/blog/${page > 1 ? page : ""}`}
               className={styles.pagination__link}
               key={i}
