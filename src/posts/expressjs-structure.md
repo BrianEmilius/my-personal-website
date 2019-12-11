@@ -226,6 +226,20 @@ Basically, this means that when a client navigates to "http://localhost:3000/ass
 
 I will dive deeper into what middlewares are in a later article.
 
+Finally, inject this module to our app.js file.
+
+```JavaScript
+// app.js
+
+let express = require("express");
+let app = express();
+
+// Here, we will require the configuration files
+require("./config/static-files")(express, app);
+
+module.exports = app;
+```
+
 ## Test all the things!
 
 Now it's time to see if all we did actually works. To test the server, I want to have a HTML file in the assets folder, that prints out a simple message, so I can see that everything runs correctly so far.
