@@ -62,7 +62,7 @@ export const tagListQuery = graphql`
           frontmatter {
             tags
             title
-            date(formatString: "YYYY-MM-DD")
+            date
             image {
               ...fluidImage
             }
