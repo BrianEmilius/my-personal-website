@@ -1,5 +1,5 @@
 import React from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 import styles from "./PrimaryNavigation.module.css";
 
 export default function PrimaryNavigation() {
@@ -17,14 +17,14 @@ export default function PrimaryNavigation() {
           </Link>
         </li> */}
         <li key="/about">
-          <AniLink to="/about" className={styles.primaryNavigation__link}>
+          <Link to="/about" className={styles.primaryNavigation__link}>
             About
-          </AniLink>
+          </Link>
         </li>
         <li key="/blog">
-          <AniLink to="/blog" className={styles.primaryNavigation__link}>
+          <Link to="/blog" className={styles.primaryNavigation__link}>
             Blog
-          </AniLink>
+          </Link>
         </li>
       </ul>
     </nav>

@@ -1,5 +1,5 @@
 import React from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 import moment from "moment";
 
 import CoverImage from "./CoverImage";
@@ -16,9 +16,9 @@ export default function Card({ excerpt, frontmatter, fields }) {
       </p>
       <CoverImage frontmatter={frontmatter} />
       <h1>
-        <AniLink to={fields.slug} className={styles.article__heading}>
+        <Link to={fields.slug} className={styles.article__heading}>
           {frontmatter.title}
-        </AniLink>
+        </Link>
       </h1>
       <p className={styles.excerpt}>{excerpt}</p>
       <Tags frontmatter={frontmatter} />

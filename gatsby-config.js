@@ -58,7 +58,6 @@ module.exports = {
     },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-transition-link",
     "gatsby-plugin-netlify",
     {
       resolve: `gatsby-plugin-feed`,

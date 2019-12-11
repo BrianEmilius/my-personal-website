@@ -1,5 +1,5 @@
 import React from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 import styles from "./Pagination.module.css";
 
 export default function Pagination({ path, pageContext }) {
@@ -17,13 +17,13 @@ export default function Pagination({ path, pageContext }) {
           );
         } else {
           return (
-            <AniLink
+            <Link
               to={`/blog/${page > 1 ? page : ""}`}
               className={styles.pagination__link}
               key={i}
             >
               {page}
-            </AniLink>
+            </Link>
           );
         }
       })}

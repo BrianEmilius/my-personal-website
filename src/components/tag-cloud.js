@@ -1,6 +1,5 @@
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { graphql, StaticQuery, Link } from "gatsby";
 import styles from "./tag-cloud.module.css";
 
 const query = graphql`
@@ -29,14 +28,13 @@ export default function TagCloud() {
           <div className={styles.tagContainer}>
             {Array.from(new Set(tags.flat())).map((tag, index) => {
               return (
-                <AniLink
-                  fade
+                <Link
                   to={"/tags/" + tag}
                   key={index}
                   className={styles.tag}
                 >
                   #{tag}
-                </AniLink>
+                </Link>
               );
             })}
           </div>
