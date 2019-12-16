@@ -4,6 +4,7 @@ import Styled from "styled-components";
 
 const Subscribe = Styled.a`
   border: 1px solid grey;
+  font-family: "Bangers", sans-serif;
   border-radius: 5px;
   padding: .4em 1em;
   font-size: .8em;
