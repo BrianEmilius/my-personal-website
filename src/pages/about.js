@@ -45,7 +45,7 @@ export default function About() {
                 </article>
                 <article>
                   <h1 className={styles.skillHeading}>
-                    Libraries & Frameworks
+                    Libraries<br/>& Frameworks
                   </h1>
                   <ul className={styles.skillList}>
                     <li>Express</li>

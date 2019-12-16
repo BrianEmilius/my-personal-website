@@ -18,6 +18,11 @@
 	color: hsl(0, 0%, 97%);
 }
 
+.siteFooter h1 {
+	font-family: "Bangers", sans-serif;
+	letter-spacing: 1px;
+}
+
 .someIcon {
 	height: 2em;
   width: 2em;

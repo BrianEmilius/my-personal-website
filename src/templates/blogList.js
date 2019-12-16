@@ -25,6 +25,11 @@ padding: 1em;
   width: 100%;
   max-width: 35em;
 }
+
+h1, h2, h3, h4 {
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 1px;
+}
 `;
 
 export default class BlogList extends React.Component {

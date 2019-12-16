@@ -9,6 +9,9 @@
 	text-decoration: none;
 	line-height: 200%;
 	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-family: "Bangers", sans-serif;
 }
 
 .primaryNavigation__link:hover {

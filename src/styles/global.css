@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+
 :root {
 	--pageMargin: 1em;
 }
@@ -20,10 +22,14 @@
 
 body {
 	margin: 0;
-	font-family: "Ubuntu", Verdana, sans-serif;
+	font-family: "EB Garamond", serif;
 	font-size: calc(19.2px + (24 - 19.2) * (100vw - 412px) / (1920 - 412));
 	overflow-y: scroll;
 	background-color: hsl(0, 0%, 97%);
+}
+
+h1, h2, h3 {
+	letter-spacing: 2px;
 }
 
 .sticky {

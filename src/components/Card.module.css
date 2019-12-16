@@ -5,14 +5,18 @@
 }
 
 .article__published {
+  font-family: "Bangers", sans-serif;
   font-size: .8em;
   color: grey;
   text-align: center;
 }
 
 .article__heading {
+  font-family: "Bangers", sans-serif;
 	text-decoration: none;
-	color: inherit;
+  color: inherit;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .article__heading:hover {

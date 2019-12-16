@@ -13,6 +13,11 @@
 
 .skillHeading {
 	margin: 0;
+	font-family: "Bangers", sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Bangers", sans-serif;
 }
 
 .skillList {

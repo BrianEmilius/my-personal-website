@@ -30,6 +30,8 @@ const Component = function({ file }) {
   `;
 
   const Paragraph = Styled.p`
+    font-family: "Bangers", sans-serif;
+    letter-spacing: 1px;
     background: hsla(0, 0%, 3%, 0.75);
     color: hsl(0, 0%, 87%);
     padding: 2em;

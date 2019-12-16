@@ -43,6 +43,7 @@ transition: right 400ms ease;
 `;
 
 const Brand = Styled(Link)`
+font-family: "Bangers", sans-serif;
 display: block;
 font-size: 200%;
 color: hsl(0, 0%, 6%);
