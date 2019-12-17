@@ -9,7 +9,6 @@ exports[`PrimaryNavigation renders correctly 1`] = `
       <a
         className="primaryNavigation__link"
         href="/about"
-        onClick={[Function]}
       >
         About
       </a>
@@ -18,7 +17,6 @@ exports[`PrimaryNavigation renders correctly 1`] = `
       <a
         className="primaryNavigation__link"
         href="/blog"
-        onClick={[Function]}
       >
         Blog
       </a>

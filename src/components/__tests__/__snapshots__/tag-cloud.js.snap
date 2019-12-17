@@ -7,7 +7,6 @@ exports[`TagCloud renders correctly 1`] = `
   <a
     className="tag"
     href="/tags/ost"
-    onClick={[Function]}
   >
     #
     ost
@@ -15,7 +14,6 @@ exports[`TagCloud renders correctly 1`] = `
   <a
     className="tag"
     href="/tags/feta"
-    onClick={[Function]}
   >
     #
     feta
@@ -23,7 +21,6 @@ exports[`TagCloud renders correctly 1`] = `
   <a
     className="tag"
     href="/tags/gouda"
-    onClick={[Function]}
   >
     #
     gouda
