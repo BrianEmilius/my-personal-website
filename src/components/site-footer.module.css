@@ -30,3 +30,9 @@
   display: inline-block;
   fill: currentColor;
 }
+
+.copy {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}

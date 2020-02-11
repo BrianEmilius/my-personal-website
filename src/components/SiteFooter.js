@@ -33,7 +33,7 @@ function Component({ github, twitter, dev }) {
           Hosted by <a href="//www.netlify.com/">Netlify</a>
         </p>
       </section>
-      <section>
+      <section className={styles.copy}>
         <p>Copyright &copy; 2015-{new Date().getFullYear()}</p>
       </section>
       <section>
