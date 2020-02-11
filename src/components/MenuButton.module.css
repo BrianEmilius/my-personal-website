@@ -5,7 +5,8 @@
 	z-index: 101;
 	background: none;
 	border: none;
-	font-family: inherit;
+	font-family: "Bangers", sans-serif;
+	letter-spacing: 1px;
 	font-size: inherit;
 	text-transform: uppercase;
 	padding: 0;
