@@ -24,7 +24,7 @@
   "homepage": "https://github.com/BrianEmilius/gatsby-docker#readme",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.4",
-    "babel-preset-gatsby": "^0.2.25",
+    "babel-preset-gatsby": "^0.2.29",
     "faunadb": "^2.10.0",
     "gatsby": "^2.18.10",
     "gatsby-background-image": "^0.8.19",
