@@ -64,7 +64,7 @@ exports.createPages = function({ actions, graphql }) {
     let tags = [];
 
     // Create blog-list pages
-    Array.from({ length: numPages }).forEach(function(_, i) {
+    /* Array.from({ length: numPages }).forEach(function(_, i) {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
         component: template.blogList,
@@ -75,6 +75,12 @@ exports.createPages = function({ actions, graphql }) {
           currentPage: i + 1
         }
       });
+    }); */
+
+    createPage({
+      path: "/blog",
+      component: template.blogList,
+      context: {}
     });
 
     // Create blog post pages
