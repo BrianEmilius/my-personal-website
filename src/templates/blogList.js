@@ -8,7 +8,6 @@ import Layout from "../components/Layout";
 import Main from "../components/main";
 import SubscribeButton from "../components/SubscribeButton";
 import Card from "../components/Card";
-import Pagination from "../components/Pagination";
 
 const Section = Styled.section`
 padding: 1em;
@@ -46,10 +45,10 @@ export default class BlogList extends React.Component {
             {posts.map(({ node }, index) => (
               <Card key={index} {...node} />
             ))}
-            <Pagination
+            {/* <Pagination
               path={this.props.path}
               pageContext={this.props.pageContext}
-            />
+            /> */}
           </Section>
         </Main>
       </Layout>
@@ -58,11 +57,9 @@ export default class BlogList extends React.Component {
 }
 
 export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query blogListQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      limit: $limit
-      skip: $skip
     ) {
       edges {
         node {
