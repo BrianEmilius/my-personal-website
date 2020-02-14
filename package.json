@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.4.0",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^25.1.0",
     "dotenv": "^8.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
