@@ -17,7 +17,8 @@
 	left: 0;
 	right: 0;
 	height: 3em;
-	background-color: hsla(0, 0%, 97%, 0.7);
+	background-color: hsla(0, 0%, 97%, 0.6);
+	backdrop-filter: blur(4px);
 	z-index: 104;
 }
 
