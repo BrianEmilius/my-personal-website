@@ -1,8 +1,7 @@
 .menuToggle {
-	position: absolute;
 	top: 1em;
 	right: 1em;
-	z-index: 101;
+	z-index: 105;
 	background: none;
 	border: none;
 	font-family: "Bangers", sans-serif;
@@ -10,11 +9,20 @@
 	font-size: inherit;
 	text-transform: uppercase;
 	padding: 0;
-	color: hsl(0, 0%, 6%);
+	transition: color 300ms ease;
+}
+
+.menuButtonOverlay {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3em;
+	background-color: hsla(0, 0%, 97%, 0.7);
+	z-index: 104;
 }
 
 @media screen and (min-width: 64em) {
-	.menuToggle {
+	.menuToggle, .menuButtonOverlay {
 		display: none;
 		visibility: hidden;
 		width: 1px;
