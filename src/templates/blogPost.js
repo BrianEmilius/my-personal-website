@@ -118,13 +118,15 @@ export default class BlogPost extends Component {
               <span itemProp="https://schema.org/author">
                 {this.siteMetadata.author}
               </span>
-              ,{" "}
+              {" "}wrote this on{" "}
               <time
                 dateTime={this.frontmatter.date}
                 itemProp="https://schema.org/datePublished"
               >
-                {moment(this.frontmatter.date).format("MMM Do YYYY")}
-              </time>{" "}
+                {moment(this.frontmatter.date).format("MMMM Do YYYY")}
+              </time>. It was a {moment(this.frontmatter.date).format("dddd")}.
+              </p>
+              <p>
               <a
                 href="https://twitter.com/share"
                 className="twitter-share-button"
