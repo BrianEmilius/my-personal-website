@@ -12,7 +12,7 @@ export default class MenuButton extends Component {
 
   render() {
     const style = {
-      position: this.props.menu === "show" ? "fixed" : "absolute"
+      position: this.props.menu === "show" ? "fixed" : "absolute",
     };
     return (
       <StaticQuery
@@ -24,14 +24,16 @@ export default class MenuButton extends Component {
           }
         `}
         render={data => (
-          <button
-            aria-controls="siteHeader"
-            onClick={this.props.toggle}
-            className={styles.menuToggle}
-            style={style}
-          >
-            Menu <img src={data.burger.publicURL} alt="menu icon" />
-          </button>
+          <div className={styles.menuButtonOverlay} style={style}>
+            <button
+              aria-controls="siteHeader"
+              onClick={this.props.toggle}
+              className={styles.menuToggle}
+              style={style}
+            >
+              Menu <img src={data.burger.publicURL} alt="menu icon" />
+            </button>
+          </div>
         )}
       />
     );
