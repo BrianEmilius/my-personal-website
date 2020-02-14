@@ -9,7 +9,7 @@ import styles from "./LatestPosts.module.css";
 const query = graphql`
   query postsQuery {
     allMarkdownRemark(
-      limit: 6
+      limit: 4
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
