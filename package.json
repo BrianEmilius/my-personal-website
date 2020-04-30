@@ -57,7 +57,7 @@
     "babel-jest": "^25.2.3",
     "dotenv": "^8.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.1.0",
+    "jest": "^25.5.2",
     "jest-dom": "^3.5.0",
     "react-test-renderer": "^16.13.0"
   }
